@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 Copies de Imagem · Jornada da Autoridade MED</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#141414;
+  --card:#1a1a1a;
+  --border:#2a2a2a;
+  --purple:#a855f7;
+  --purple-dark:#7c3aed;
+  --purple-light:#c084fc;
+  --white:#ffffff;
+  --muted:#9ca3af;
+  --green:#10b981;
+  --red:#ef4444;
+}
+body{background:var(--bg);color:var(--white);line-height:1.55;padding-bottom:60px;font-weight:400}
+.container{max-width:1400px;margin:0 auto;padding:0 24px}
+
+.header{background:linear-gradient(135deg,#0a0a0a 0%,#1a0033 60%,#2d0066 100%);padding:64px 24px;border-bottom:2px solid var(--purple);text-align:center;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-50%;right:-20%;width:60%;height:200%;background:radial-gradient(ellipse,rgba(168,85,247,.25),transparent 60%);pointer-events:none}
+.header h1{font-size:42px;font-weight:900;margin-bottom:8px;position:relative;z-index:1;letter-spacing:-0.5px}
+.header h1 span{color:var(--purple);font-weight:900}
+.header p{color:var(--muted);font-size:16px;max-width:880px;margin:0 auto;position:relative;z-index:1;font-weight:400}
+.header .date{display:inline-block;margin-top:18px;padding:8px 16px;background:rgba(168,85,247,.15);border:1px solid var(--purple);border-radius:24px;color:var(--purple);font-size:13px;font-weight:600;position:relative;z-index:1}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:6px;font-size:11px;font-weight:600;white-space:nowrap;transition:all .15s}
+.nav a:hover{color:var(--purple);background:var(--card)}
+
+section{padding:36px 0 12px}
+.section-head{margin-bottom:24px}
+.section-head .label{display:inline-block;padding:5px 12px;background:rgba(168,85,247,.18);color:var(--purple);border-radius:4px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.section-head h2{font-size:30px;font-weight:800;margin-bottom:6px;letter-spacing:-0.5px}
+.section-head p{color:var(--muted);font-size:15px;max-width:880px;line-height:1.6}
+
+.intro{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:36px}
+.intro h2{font-size:22px;font-weight:800;margin-bottom:14px}
+.intro p{font-size:15px;line-height:1.7;margin-bottom:12px;color:var(--white)}
+.intro strong{color:var(--purple);font-weight:700}
+
+.ranking{background:var(--card);border:1px solid var(--purple);border-radius:14px;padding:28px;margin-bottom:36px}
+.ranking h3{font-size:20px;font-weight:800;margin-bottom:14px;color:var(--purple)}
+.ranking-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+@media(max-width:900px){.ranking-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.ranking-grid{grid-template-columns:1fr}}
+.ranking-card{padding:18px;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+.ranking-card .rk{display:inline-block;padding:3px 10px;background:var(--purple);color:var(--white);border-radius:4px;font-size:10px;font-weight:800;margin-bottom:10px}
+.ranking-card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.ranking-card .metric{font-size:12px;color:var(--muted);margin-bottom:3px}
+.ranking-card .metric strong{color:var(--white);font-weight:700}
+
+.copy-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:24px;position:relative;overflow:hidden}
+.copy-card::before{content:'';position:absolute;top:0;right:0;width:240px;height:240px;background:radial-gradient(circle at top right,rgba(168,85,247,.1),transparent 70%);pointer-events:none}
+
+.copy-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:14px;position:relative}
+.copy-num{display:inline-block;padding:6px 14px;background:var(--purple);color:var(--white);border-radius:6px;font-size:12px;font-weight:800;letter-spacing:.5px}
+.copy-tipo{display:inline-block;padding:4px 12px;background:rgba(255,255,255,.06);border-radius:14px;font-size:11px;color:var(--muted);font-weight:600}
+.copy-perf{display:inline-block;padding:4px 12px;background:rgba(16,185,129,.15);border:1px solid var(--green);border-radius:14px;font-size:11px;color:var(--green);font-weight:700}
+
+.copy-card h2{font-size:24px;font-weight:800;margin-bottom:8px;line-height:1.2;position:relative}
+.copy-card h2 span{color:var(--purple)}
+
+.copy-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:18px;position:relative}
+@media(max-width:920px){.copy-grid{grid-template-columns:1fr}}
+
+.copy-main{padding:0}
+
+.copy-section{margin-bottom:18px}
+.copy-section .label{font-size:10px;color:var(--purple);font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
+
+.head-mock{font-size:24px;font-weight:800;line-height:1.2;margin-bottom:6px;color:var(--white)}
+.head-mock span{color:var(--purple)}
+.sub-mock{font-size:14px;font-weight:500;color:var(--muted);line-height:1.5}
+.body-mock{font-size:14px;line-height:1.6;color:var(--white)}
+.body-mock strong{color:var(--purple)}
+
+.bullets{list-style:none;padding:0;margin:0}
+.bullets li{padding:6px 0 6px 22px;position:relative;font-size:14px;line-height:1.5}
+.bullets li::before{content:'✓';position:absolute;left:0;color:var(--purple);font-weight:800;font-size:16px;top:4px}
+.bullets-x li::before{content:'✗';color:var(--red)}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}
+.compare-col{padding:14px;border-radius:8px}
+.compare-col.good{background:rgba(168,85,247,.08);border:1px solid var(--purple)}
+.compare-col.bad{background:rgba(255,255,255,.04);border:1px solid var(--border)}
+.compare-col h4{font-size:13px;color:var(--purple);margin-bottom:8px;font-weight:700}
+.compare-col.bad h4{color:var(--muted)}
+.compare-col ul{list-style:none;padding:0}
+.compare-col li{padding:4px 0 4px 18px;position:relative;font-size:13px}
+.compare-col.good li::before{content:'✓';position:absolute;left:0;color:var(--purple);font-weight:800}
+.compare-col.bad li::before{content:'✗';position:absolute;left:0;color:var(--muted);font-weight:800}
+
+.cta-duplo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media(max-width:640px){.cta-duplo{grid-template-columns:1fr}}
+.cta-versao{padding:14px;border-radius:10px;border:2px solid}
+.cta-versao.organica{background:rgba(168,85,247,.1);border-color:var(--purple)}
+.cta-versao.paga{background:rgba(255,255,255,.04);border-color:var(--white)}
+.cta-versao .v-tag{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.cta-versao.organica .v-tag{color:var(--purple)}
+.cta-versao.paga .v-tag{color:var(--white)}
+.cta-versao .v-frase{font-size:14px;font-weight:700;line-height:1.4;color:var(--white)}
+
+.side{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:18px;height:fit-content;position:sticky;top:70px}
+.side h4{font-size:11px;color:var(--purple);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;font-weight:800}
+.side p{font-size:13px;line-height:1.6;color:var(--white);margin-bottom:12px}
+.side p:last-child{margin-bottom:0}
+.side .img-sug{padding:14px;background:rgba(168,85,247,.08);border:1px dashed var(--purple);border-radius:8px;margin-top:10px}
+.side .img-sug strong{color:var(--purple);display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.side .img-sug span{font-size:12px;color:var(--white);line-height:1.5}
+
+.persona{display:inline-block;padding:3px 10px;background:rgba(168,85,247,.12);color:var(--purple);border-radius:12px;font-size:11px;font-weight:700;margin-bottom:10px}
+
+.urgency-banner{background:var(--red);color:var(--white);padding:8px 14px;border-radius:6px;font-size:14px;font-weight:800;display:inline-block;margin-bottom:8px}
+
+.numero-grande{font-size:48px;font-weight:900;color:var(--purple);line-height:1;margin:8px 0}
+
+.aspas-mock{font-size:30px;font-weight:800;font-style:italic;line-height:1.15;color:var(--white);margin-bottom:12px}
+
+.funil-info{padding:14px;background:rgba(168,85,247,.06);border-radius:8px;margin:10px 0}
+.funil-info div{padding:6px 0;font-size:13px}
+.funil-info .arrow{color:var(--purple);font-weight:700;margin-right:8px}
+
+.footer{padding:32px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>15 Copies de <span>Imagem</span> · Jornada da Autoridade Med</h1>
+    <p>Brief para o designer · Padrões validados pelo ranking de performance + 19 criativos da Tamara analisados + 5 perfis de dor médica + regra de duplo CTA</p>
+    <div class="date">Brito Mídias · 12/06/2026 · Repositório AIM House</div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#intro">Intro</a>
+    <a href="#ranking">Ranking base</a>
+    <a href="#c1">1</a><a href="#c2">2</a><a href="#c3">3</a><a href="#c4">4</a><a href="#c5">5</a>
+    <a href="#c6">6</a><a href="#c7">7</a><a href="#c8">8</a><a href="#c9">9</a><a href="#c10">10</a>
+    <a href="#c11">11</a><a href="#c12">12</a><a href="#c13">13</a><a href="#c14">14</a><a href="#c15">15</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<section id="intro">
+  <div class="intro">
+    <h2>Como ler este brief</h2>
+    <p>15 copies de imagem estática prontas pra o Rian produzir. Todas adaptadas pra <strong>Jornada da Autoridade Med</strong> (R$ 67, 25 de junho, 19h às 22h).</p>
+    <p>Cada copy combina <strong>3 fontes de inteligência</strong>:</p>
+    <p>1. <strong>Ranking de performance</strong> dos 24 criativos históricos (CPA + volume de vendas)</p>
+    <p>2. <strong>9 padrões visuais</strong> identificados nas 19 imagens da Tamara que você me mandou</p>
+    <p>3. <strong>5 perfis de dor</strong> do médico mapeados no brief anterior</p>
+    <p>Cada copy traz: padrão, persona alvo, headline, subheadline, bullets, <strong>2 versões de CTA</strong> (orgânica e paga), sugestão de imagem e nota de design.</p>
+  </div>
+</section>
+
+<section id="ranking">
+  <div class="ranking">
+    <h3>Top 4 padrões vencedores · base do ranking de performance</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px">Distribuí as 15 copies dando peso pros padrões que mais converteram histórico.</p>
+    <div class="ranking-grid">
+      <div class="ranking-card">
+        <div class="rk">★ TOP 1</div>
+        <h4>Crie Seu Primeiro Evento</h4>
+        <div class="metric">3 dos top 5 · <strong>223 vendas</strong></div>
+        <div class="metric">CPA médio <strong>R$ 94</strong></div>
+        <div class="metric" style="color:var(--purple);margin-top:6px">→ 4 copies novas</div>
+      </div>
+      <div class="ranking-card">
+        <div class="rk">★ MENOR CPA</div>
+        <h4>Virada de Lote</h4>
+        <div class="metric">4 criativos · CPA <strong>R$ 73</strong></div>
+        <div class="metric">CTR <strong>1,8% médio</strong></div>
+        <div class="metric" style="color:var(--purple);margin-top:6px">→ 3 copies novas</div>
+      </div>
+      <div class="ranking-card">
+        <div class="rk">★ NÚMEROS</div>
+        <h4>12 Eventos / 200K Lucro</h4>
+        <div class="metric">35 + 8 vendas · CPA <strong>R$ 145</strong></div>
+        <div class="metric">Performam <strong>acima da média</strong></div>
+        <div class="metric" style="color:var(--purple);margin-top:6px">→ 3 copies novas</div>
+      </div>
+      <div class="ranking-card">
+        <div class="rk">★ OBJEÇÃO</div>
+        <h4>Quebra em Aspas</h4>
+        <div class="metric">Formato novo · alta identificação</div>
+        <div class="metric">Validado no orgânico viral</div>
+        <div class="metric" style="color:var(--purple);margin-top:6px">→ 5 copies novas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 01 -->
+<section id="c1">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 01</span>
+      <span class="copy-tipo">Padrão: Crie Seu Primeiro Evento (Top 1 histórico)</span>
+      <span class="copy-perf">★ Vendas: 223 históricas · CPA R$ 94</span>
+    </div>
+    <div class="persona">Persona: Médico subfaturado · Perfil 01</div>
+    <h2>Crie seu <span>primeiro evento médico</span> em apenas 3 horas</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">CRIE SEU PRIMEIRO EVENTO MÉDICO POCKET EM APENAS 3 HORAS</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">SEM PRECISAR DE MUITOS PACIENTES, SEM SER MÉDICO FAMOSO, SEM CAMPANHA CARA. DIA 25/06, 19h às 22h, ONLINE NO ZOOM.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Bullets</div>
+          <ul class="bullets">
+            <li>Os 3 modelos de evento que funcionam pro mercado médico</li>
+            <li>Como vender protocolo de R$ 30k a R$ 100k em uma única noite</li>
+            <li>Pitch implacável adaptado pra paciente e pra colega</li>
+            <li>Cases reais de médicos faturando R$ 480k em uma noite</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs · 2 versões obrigatórias</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Foto da Tamara em posição de autoridade, fundo escuro com gradiente roxo. Headline em CAPS branco forte. Datas em cards roxos com horário visível.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara em pose decidida + fundo gradient preto/roxo + logo Jornada da Autoridade Med no topo + selo "MÉTODO VALIDADO"</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 02 -->
+<section id="c2">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 02</span>
+      <span class="copy-tipo">Padrão: Crie Seu Primeiro Evento (variação resultado)</span>
+      <span class="copy-perf">★ Top performer histórico</span>
+    </div>
+    <div class="persona">Persona: Médico de agenda cheia · Perfil 02</div>
+    <h2>Em 3 horas online, monte um evento que <span>fatura R$ 500k</span> em uma única noite</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">EM 3 HORAS ONLINE, MONTE O EVENTO QUE FATURA <span style="color:var(--purple)">R$ 500K</span> EM UMA ÚNICA NOITE</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">Mesmo sem audiência grande no Instagram. Mesmo se você nunca fez evento. Dia 25 de junho, ao vivo pelo Zoom.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>Selo dourado "MÉTODO VALIDADO"</li>
+            <li>Tag "ÚLTIMOS DIAS COM VALOR PROMOCIONAL" no topo</li>
+            <li>Card com data 25/06 19h-22h destaque</li>
+            <li>Logo Jornada da Autoridade Med no topo</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Foco no número R$ 500K em destaque roxo gigante. Foto da Tamara em ambiente premium (jantar elegante ao fundo).</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara sorrindo + ambiente de jantar pocket ao fundo + número R$ 500K em destaque + logo no topo</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 03 -->
+<section id="c3">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 03</span>
+      <span class="copy-tipo">Padrão: Crie Seu Primeiro Evento (foco setup simples)</span>
+      <span class="copy-perf">★ Top performer histórico</span>
+    </div>
+    <div class="persona">Persona: Médico que quer começar · Perfil 01 + 04</div>
+    <h2>Você não precisa de assessoria. Precisa do <span>método certo</span></h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">VOCÊ NÃO PRECISA DE ASSESSORIA. PRECISA DO MÉTODO CERTO PRA SEU PRIMEIRO EVENTO MÉDICO.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">3 horas ao vivo no dia 25/06 e você sai com o passo a passo completo do seu primeiro evento pocket. Sem contratar agência, sem terceirizar nada.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Bullets (com losangos)</div>
+          <ul class="bullets">
+            <li>Modelo americano de evento high ticket adaptado pra médico</li>
+            <li>Pitch que vende protocolo sem parecer comercial</li>
+            <li>Logística simplificada (mansão, jantar curado ou pocket residencial)</li>
+            <li>Cases reais de médicos brasileiros</li>
+            <li>Sai pronto pra rodar em 30 dias</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Foto da Tamara apontando pra câmera ou em postura de "ensino". Layout limpo com bullets em destaque.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara em pose autoridade + fundo escuro/roxo + checklist visual + datas em card</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 04 -->
+<section id="c4">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 04</span>
+      <span class="copy-tipo">Padrão: Virada de Lote (menor CPA histórico)</span>
+      <span class="copy-perf">★ CPA médio R$ 73</span>
+    </div>
+    <div class="persona">Persona: Médico decidido na reta final</div>
+    <h2><span style="color:var(--red)">VIRADA DE LOTE</span> da Imersão Med</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="urgency-banner">⚠ ÚLTIMAS HORAS</div>
+          <div class="head-mock">VIRADA DE LOTE DA IMERSÃO MED</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">O VALOR VAI SUBIR. Esse é o último momento pra garantir sua vaga com o menor valor na imersão que ensina médico a faturar com evento presencial pocket.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>Fita vermelha atravessando o topo "ÚLTIMAS VAGAS"</li>
+            <li>Selo dourado "MÉTODO VALIDADO"</li>
+            <li>Data 25/06 19h-22h em card destacado</li>
+            <li>Tag "VALIDADO POR MÉDICOS EM 7 ESPECIALIDADES"</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Vermelho como cor de alarme principal. Fitas atravessadas. Selo dourado pra autoridade. Foto da Tamara central sorrindo (não nervosa).</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Foto Tamara sorrindo + fita vermelha "ÚLTIMAS VAGAS" no topo + selo dourado + roxo no fundo</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 05 -->
+<section id="c5">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 05</span>
+      <span class="copy-tipo">Padrão: Virada de Lote + Comparativo Pocket vs Grande</span>
+      <span class="copy-perf">★ Combo testado</span>
+    </div>
+    <div class="persona">Persona: Médico que ainda compara modelos · Perfil 02</div>
+    <h2>Pocket vs Grande: o que <span>realmente funciona</span> pro médico</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="urgency-banner">⚠ O LOTE ATUAL ESTÁ ACABANDO</div>
+          <div class="head-mock">POCKET VS GRANDE: O QUE FUNCIONA PRO MÉDICO</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Comparativo visual</div>
+          <div class="compare-grid">
+            <div class="compare-col good">
+              <h4>POCKET</h4>
+              <ul>
+                <li>Baixo custo</li>
+                <li>Alta margem</li>
+                <li>Logística simples</li>
+                <li>Conversão até 70%</li>
+                <li>10-15 médicos qualificados</li>
+              </ul>
+            </div>
+            <div class="compare-col bad">
+              <h4>GRANDE</h4>
+              <ul>
+                <li>Custo elevado</li>
+                <li>Margem reduzida</li>
+                <li>Logística complexa</li>
+                <li>Conversão mais baixa</li>
+                <li>Público difuso</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">Entre agora e domine o método de evento pocket que converte até 70% dos pacientes alto ticket. Dia 25/06.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Comparativo POCKET vs GRANDE em duas colunas. Roxo nos checks da coluna boa, branco/cinza nos X da ruim. Foto Tamara no canto direito sorrindo.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Layout 2 colunas + Tamara à direita + headline em CAPS + datas no rodapé</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 06 -->
+<section id="c6">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 06</span>
+      <span class="copy-tipo">Padrão: Virada de Lote · "Depois não diga que não avisei"</span>
+      <span class="copy-perf">★ Headline viralizou no orgânico</span>
+    </div>
+    <div class="persona">Persona: Procrastinador / em dúvida · Todos os perfis</div>
+    <h2>Depois não diga que eu <span>não avisei</span>...</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">DEPOIS NÃO DIGA QUE EU NÃO AVISEI...</div>
+          <div class="urgency-banner" style="margin-top:8px">VIRADA DE LOTE!</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">ESSE É O ÚLTIMO MOMENTO PARA GARANTIR ACESSO COM O MENOR VALOR À IMERSÃO QUE TE PREPARA PRA FATURAR R$ 500K EM UMA ÚNICA NOITE COM EVENTOS POCKET MÉDICOS.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>Logo Jornada da Autoridade Med no topo</li>
+            <li>Selo "MÉTODO VALIDADO" dourado lateral</li>
+            <li>Card "Imersão de 3 horas · 19h às 22h · Online no Zoom"</li>
+            <li>Caixa vermelha de destaque "VIRADA DE LOTE"</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Mesmo layout dos criativos virais da Tamara (DEPOIS NÃO DIGA QUE EU NÃO AVISEI), mas com paleta preto e roxo. Foto da Tamara sorrindo (a frase é dura mas a expressão suaviza).</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara sorrindo + fundo evento desfocado + selo dourado MÉTODO VALIDADO + caixa vermelha VIRADA DE LOTE</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 07 -->
+<section id="c7">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 07</span>
+      <span class="copy-tipo">Padrão: Transformação por Números (Top 5 histórico)</span>
+      <span class="copy-perf">★ 35 vendas · CPA R$ 143</span>
+    </div>
+    <div class="persona">Persona: Médico que quer escalar · Perfil 03</div>
+    <h2>De 1 consultório... para <span>12 eventos por ano</span> em 5 estados</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">DE 1 CONSULTÓRIO NA SUA CIDADE... PARA <span style="color:var(--purple)">12 EVENTOS/ANO</span> EM 5 ESTADOS</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">Médicos que dominam o método pocket conseguem:</div>
+        </div>
+        <div class="copy-section">
+          <ul class="bullets">
+            <li>Rodar múltiplos eventos por mês sem aumentar a equipe</li>
+            <li>Vender protocolos em cidades onde não atendem</li>
+            <li>Levar o método pra outros estados e até pra fora do país</li>
+            <li>Multiplicar receita sem multiplicar horas de consultório</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">Tag inferior</div>
+          <div class="sub-mock" style="background:var(--purple);color:var(--white);padding:8px 12px;border-radius:6px;display:inline-block;font-weight:700">Aprenda o sistema completo de expansão médica</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Headline em CAPS gigante com "12 EVENTOS/ANO" em destaque roxo neon. Foto da Tamara com headset (em ação). Fundo escuro com brilhos roxos.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara apontando em palco + número 12 EVENTOS/ANO destacado em roxo + mapa Brasil ao fundo discreto</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 08 -->
+<section id="c8">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 08</span>
+      <span class="copy-tipo">Padrão: Números / Comparativo Matemático</span>
+      <span class="copy-perf">★ 200K Lucro · 8 vendas histórico</span>
+    </div>
+    <div class="persona">Persona: Médico de raciocínio analítico · Perfil 03</div>
+    <h2>1 evento grande/ano = R$ 200k vs 12 pocket/ano = <span>R$ 2MM+</span></h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal · Comparativo matemático</div>
+          <div class="head-mock" style="font-size:20px">1 EVENTO GRANDE / ANO</div>
+          <div class="numero-grande" style="font-size:36px">= R$ 200K lucro</div>
+          <div class="head-mock" style="font-size:18px;color:var(--muted);margin:14px 0">VS</div>
+          <div class="head-mock" style="font-size:20px">12 EVENTOS POCKET / ANO</div>
+          <div class="numero-grande">= R$ 2MM+ lucro</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">A matemática é simples: eventos menores, mais frequentes e mais lucrativos vencem 1 evento grande difícil de organizar. Médicos que vivem DE eventos fazem múltiplas edições por mês.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Tag inferior</div>
+          <div class="sub-mock" style="background:var(--purple);color:var(--white);padding:8px 12px;border-radius:6px;display:inline-block;font-weight:700">Aprenda a estrutura de eventos médicos recorrentes</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Fundo preto com carimbos "EVENTO MARCADO" nos meses do ano (igual ao criativo histórico). VS gigante no centro separando os números. R$ 2MM+ em destaque roxo neon.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Fundo preto + 12 carimbos "EVENTO MARCADO" por mês + comparativo R$ 200K vs R$ 2MM+ em destaque + sem foto da Tamara</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 09 -->
+<section id="c9">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 09</span>
+      <span class="copy-tipo">Padrão: Comparativo Visual (auditório vs pocket)</span>
+      <span class="copy-perf">★ Quebra de crença</span>
+    </div>
+    <div class="persona">Persona: Médico que acha "evento grande = melhor" · Perfil 04</div>
+    <h2>Por que eventos médicos grandes <span>estão perdendo</span> para os pocket</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">POR QUE EVENTOS MÉDICOS GRANDES ESTÃO <span style="color:var(--purple)">PERDENDO PARA OS POCKET</span>?</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">Menos pacientes. Mais lucro. Mais conversão. Enquanto a maioria dos médicos ainda tenta lotar auditórios em congresso, <strong>os maiores nomes da área descobriram</strong> que eventos menores e exclusivos vendem MUITO mais protocolo alto ticket.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>2 fotos lado a lado: auditório médico congestionado VS jantar pocket elegante</li>
+            <li>Tag amarela na base: "Veja por que isso está mudando o mercado médico"</li>
+            <li>Logo Jornada da Autoridade Med centralizado no topo</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Layout split: ESQ foto de auditório médico/congresso lotado + DIR foto de jantar pocket com médicos. Headline embaixo em CAPS. Fundo preto.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>2 fotos lado a lado · sem Tamara · split horizontal limpo · comparativo visual evidente</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 10 -->
+<section id="c10">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 10</span>
+      <span class="copy-tipo">Padrão: Comparativo Visual (convênio vs particular alto ticket)</span>
+      <span class="copy-perf">★ Adaptação específica nicho médico</span>
+    </div>
+    <div class="persona">Persona: Médico que ainda atende convênio · Perfil 01</div>
+    <h2>Por que médicos que <span>cobram alto ticket</span> não dependem mais de convênio</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">POR QUE MÉDICOS QUE COBRAM ALTO TICKET <span style="color:var(--purple)">NÃO DEPENDEM MAIS DE CONVÊNIO</span>?</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">Glosa não é o problema. Plano não é o problema. <strong>O problema é o canal de aquisição.</strong> Médicos que aprenderam a vender protocolo via evento pocket dobraram receita sem aumentar uma única consulta.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>2 fotos: ESQ pilha de guias/papelada de convênio · DIR mesa de jantar elegante com médicos</li>
+            <li>Tag inferior: "Aprenda a vender protocolo direto, sem intermediário"</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Split visual potente: papelada de convênio (cinza, burocrático) vs evento pocket (premium, dourado, vivo). Diferença emocional forte.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>ESQ: papelada empilhada · DIR: mesa de jantar com médicos premium · headline em CAPS embaixo</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 11 -->
+<section id="c11">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 11</span>
+      <span class="copy-tipo">Padrão: Quebra de Objeção em Aspas</span>
+      <span class="copy-perf">★ Alta identificação</span>
+    </div>
+    <div class="persona">Persona: Médico travado pelo "não sou vendedor" · Todos perfis</div>
+    <h2 class="aspas-mock">"Mas eu sou médico, não vendedor"</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal (em aspas)</div>
+          <div class="aspas-mock" style="margin-bottom:8px">"Mas eu sou médico, não vendedor"</div>
+          <div class="sub-mock" style="color:var(--purple);font-weight:700;font-style:italic">Exatamente por isso você precisa da Imersão Med</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">Em 3 horas você aprende:</div>
+        </div>
+        <div class="copy-section">
+          <ul class="bullets">
+            <li>Como apresentar protocolo sem parecer comercial</li>
+            <li>Como atrair paciente alto ticket sem postar reels</li>
+            <li>Pitch médico que vende naturalmente, sem pressão</li>
+            <li>Logística simplificada (jantar, mansão ou pocket residencial)</li>
+            <li>Expansão pra outras cidades sem aumentar agenda</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">Tag inferior</div>
+          <div class="sub-mock" style="background:var(--purple);color:var(--white);padding:8px 12px;border-radius:6px;display:inline-block;font-weight:700">Método validado. Sem enrolação. Só o que funciona pro médico.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Aspas grandes brancas em fundo escuro. Headline em itálico (parece quote real). Pode usar foto de médico pensativo ao lado da headline. Tamara aparece só em selo pequeno.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Foto médico pensativo (perfil 3/4) + aspas grandes brancas + headline em itálico + bullets em roxo abaixo</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 12 -->
+<section id="c12">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 12</span>
+      <span class="copy-tipo">Padrão: Quebra de Objeção em Aspas (variação)</span>
+      <span class="copy-perf">★ Alta identificação</span>
+    </div>
+    <div class="persona">Persona: Médico travado no preço · Perfil 01</div>
+    <h2 class="aspas-mock">"Paciente não paga R$ 100 mil"</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal (em aspas)</div>
+          <div class="aspas-mock" style="margin-bottom:8px">"Paciente não paga R$ 100 mil em protocolo"</div>
+          <div class="sub-mock" style="color:var(--purple);font-weight:700;font-style:italic">Quem te disse isso nunca fez um jantar pocket bem estruturado.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">A diferença entre quem cobra R$ 800 a consulta e quem cobra R$ 100k em protocolo <strong>não é o conhecimento</strong>. É a arquitetura da oferta. E é exatamente isso que eu vou te ensinar dia 25 de junho.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>Aspas grandes brancas/roxas no topo</li>
+            <li>Foto da Tamara com expressão de "deixa eu te contar"</li>
+            <li>Tag "MÉTODO VALIDADO POR MÉDICOS" no rodapé</li>
+            <li>Card data 25/06 19h-22h</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Mesma estética do Copy 11 mas com objeção financeira. Tamara à direita com expressão sutil de quem vai contar o segredo.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Aspas grandes + Tamara à direita com expressão sutil + texto à esquerda + fundo escuro/roxo</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 13 -->
+<section id="c13">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 13</span>
+      <span class="copy-tipo">Padrão: Infográfico do Funil / Método</span>
+      <span class="copy-perf">★ Visualização do método</span>
+    </div>
+    <div class="persona">Persona: Médico analítico que precisa ver o "como" · Perfil 03</div>
+    <h2>O método: <span>evento pocket médico</span> (12 pessoas)</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">O MÉTODO: EVENTO POCKET MÉDICO (12 PESSOAS)</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Funil visual com dados</div>
+          <div class="funil-info">
+            <div><span class="arrow">→</span> <strong>Convite curado</strong> · 12 pacientes alto ticket selecionados</div>
+            <div><span class="arrow">→</span> <strong>Pitch implacável</strong> · método adaptado pro contexto médico</div>
+            <div><span class="arrow">→</span> <strong>Oferta no fim do jantar</strong> · protocolo de R$ 60k a R$ 100k</div>
+            <div><span class="arrow">→</span> <strong>Conversão 70%</strong> · 8 pacientes fechados na noite</div>
+            <div><span class="arrow">→</span> <strong>R$ 480k a R$ 800k em UMA noite</strong></div>
+          </div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">É assim que médicos estão vendendo protocolo alto ticket <strong>sem depender de tráfego pago</strong>. Evento pocket médico: simples, lucrativo, conversão previsível.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Tag inferior</div>
+          <div class="sub-mock" style="background:var(--purple);color:var(--white);padding:8px 12px;border-radius:6px;display:inline-block;font-weight:700">Domine a estratégia completa em 3 horas</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Funil roxo central. Tags em volta com dados. Headline em CAPS no topo. R$ 480k circulado em destaque no fundo do funil. Sem foto da Tamara.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Funil roxo central · tags com dados em volta · R$ 480k destacado · fundo preto · sem Tamara</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 14 -->
+<section id="c14">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 14</span>
+      <span class="copy-tipo">Padrão: Promessa + Datas (formato hero clássico)</span>
+      <span class="copy-perf">★ Conversão direta</span>
+    </div>
+    <div class="persona">Persona: Top of funnel · qualquer médico interessado</div>
+    <h2>Do zero ao lucro com <span>eventos médicos pocket</span></h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock">DO ZERO AO LUCRO COM EVENTOS MÉDICOS POCKET</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="sub-mock">Descubra o método que já gerou milhões nos EUA e está transformando carreiras médicas no Brasil.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Elementos visuais</div>
+          <ul class="bullets">
+            <li>Foto da Tamara em palco grande (autoridade em ação)</li>
+            <li>Card data: 25/06 (quarta-feira) · 19h às 22h · Online no Zoom</li>
+            <li>Logo Jornada da Autoridade Med no topo</li>
+            <li>CTA destacado embaixo "GARANTA SUA VAGA AGORA"</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Hero clássico. Foto Tamara em palco como elemento dominante. Headline em CAPS bem grande à esquerda. Data e horário destacados embaixo. Fundo escuro com brilho roxo.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara em palco profissional + headline em CAPS branco · card data roxo · CTA verde no rodapé</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COPY 15 -->
+<section id="c15">
+  <div class="copy-card">
+    <div class="copy-head">
+      <span class="copy-num">COPY 15</span>
+      <span class="copy-tipo">Padrão: Pergunta Provocativa</span>
+      <span class="copy-perf">★ FOMO leve</span>
+    </div>
+    <div class="persona">Persona: Médico curioso · top of funnel</div>
+    <h2>Você ainda <span>não está sabendo</span>?</h2>
+
+    <div class="copy-grid">
+      <div class="copy-main">
+        <div class="copy-section">
+          <div class="label">Headline principal</div>
+          <div class="head-mock" style="font-size:34px">VOCÊ AINDA NÃO ESTÁ SABENDO?</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Subheadline</div>
+          <div class="body-mock">A Imersão Jornada da Autoridade <strong>Med</strong> vai te ensinar a criar um evento presencial pocket no modelo americano, altamente lucrativo, pra 12 pacientes alto ticket. Em apenas 3 horas, ao vivo.</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">Bullets com losangos</div>
+          <ul class="bullets">
+            <li>Sem precisar ser médico famoso</li>
+            <li>Com baixo custo e alta margem de lucro</li>
+            <li>Valor promocional por tempo limitado (R$ 67)</li>
+            <li>Método validado em 7 especialidades médicas</li>
+          </ul>
+        </div>
+        <div class="copy-section">
+          <div class="label">Card de data</div>
+          <div class="sub-mock" style="background:var(--purple);color:var(--white);padding:10px 14px;border-radius:6px;display:inline-block;font-weight:700">Quarta-feira 25/06 · 19h às 22h · Online no Zoom</div>
+        </div>
+        <div class="copy-section">
+          <div class="label">CTAs</div>
+          <div class="cta-duplo">
+            <div class="cta-versao organica"><div class="v-tag">A · Orgânica</div><div class="v-frase">Comenta MED e eu te envio o link do evento</div></div>
+            <div class="cta-versao paga"><div class="v-tag">B · Paga</div><div class="v-frase">Clique em Saiba Mais e garante sua vaga</div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="side">
+        <h4>Direção de arte</h4>
+        <p>Headline em pergunta atacando o ego ("você está perdendo algo"). Foto da Tamara sorrindo confiante. Setas indicando "arrasta pra saber" se for usar em formato carrossel também.</p>
+        <div class="img-sug">
+          <strong>Imagem</strong>
+          <span>Tamara sorrindo confiante · headline em CAPS gigante à esquerda · card de data roxo · CTA destacado</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  <div class="container">
+    15 Copies de imagem · Jornada da Autoridade Med · Brito Mídias · 12/06/2026 · github.com/britomidiascompany-stack/repositoria-aimhouse
+  </div>
+</div>
+
+</body></html>
