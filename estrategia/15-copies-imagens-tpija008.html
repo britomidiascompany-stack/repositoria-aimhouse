@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 Copies de Imagem · TPIJA 008 · Tamara Damares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#15151f;
+  --card:#1a1a26;
+  --border:rgba(139,92,246,0.2);
+  --border-strong:rgba(139,92,246,0.5);
+  --purple:#8b5cf6;
+  --purple-soft:#a78bfa;
+  --purple-deep:#6d28d9;
+  --white:#ffffff;
+  --text:#ffffff;
+  --muted:#9ca3af;
+  --green:#10b981;
+  --red:#ef4444;
+  --gold:#d4af37;
+}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.55;padding-bottom:80px;font-size:15px}
+.container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* Header */
+.header{background:linear-gradient(135deg,#0a0a0a 0%,#1a0a2a 50%,#0a0a0a 100%);padding:56px 24px;border-bottom:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.header::before{content:"";position:absolute;top:-50%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);pointer-events:none}
+.header-inner{position:relative;z-index:1}
+.header .eyebrow{font-size:12px;letter-spacing:3px;color:var(--purple-soft);font-weight:600;text-transform:uppercase;margin-bottom:14px}
+.header h1{font-size:42px;font-weight:800;margin-bottom:10px;letter-spacing:-1px;line-height:1.1}
+.header h1 span{background:linear-gradient(135deg,var(--purple) 0%,var(--purple-soft) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header p{color:var(--muted);font-size:15px;max-width:760px;margin:0 auto;font-weight:300}
+.header .date{display:inline-block;margin-top:18px;padding:7px 16px;background:rgba(139,92,246,0.1);border:1px solid var(--purple);border-radius:24px;color:var(--purple-soft);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 0}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;transition:all .15s;border:1px solid transparent}
+.nav a:hover{color:var(--white);background:var(--card);border-color:var(--border)}
+.nav a.section-link{color:var(--purple-soft);border:1px solid var(--border)}
+
+/* Sections */
+section{padding:48px 0 24px}
+.section-head{margin-bottom:28px}
+.section-head .label{display:inline-block;padding:5px 12px;background:rgba(139,92,246,0.15);color:var(--purple-soft);border-radius:6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.section-head h2{font-size:28px;font-weight:700;margin-bottom:6px;letter-spacing:-0.5px}
+.section-head p{color:var(--muted);font-size:14px;max-width:860px;font-weight:300}
+
+/* Winner cards */
+.winners-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}
+@media(max-width:900px){.winners-grid{grid-template-columns:repeat(2,1fr)}}
+.winner-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;position:relative}
+.winner-card .w-rank{position:absolute;top:-12px;left:18px;background:var(--purple);color:var(--white);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.winner-card .w-name{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:10px;letter-spacing:.5px;margin-top:8px}
+.winner-card .w-hook{font-size:14px;font-weight:700;margin-bottom:14px;line-height:1.3}
+.winner-card .w-meta{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.winner-card .w-meta strong{color:var(--purple-soft);font-weight:700}
+
+/* Archetypes */
+.archetypes{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+@media(max-width:900px){.archetypes{grid-template-columns:repeat(2,1fr)}}
+.archetype{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:12px}
+.archetype .a-label{font-size:10px;color:var(--purple-soft);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.archetype .a-name{font-weight:600;color:var(--white)}
+
+/* Copy cards */
+.copy-block{padding:36px 0;border-bottom:1px solid var(--border)}
+.copy-block:last-of-type{border-bottom:none}
+.copy-head{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.copy-meta-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copy-num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:linear-gradient(135deg,var(--purple) 0%,var(--purple-deep) 100%);color:var(--white);border-radius:10px;font-weight:800;font-size:18px;font-family:'Poppins'}
+.copy-arch{display:inline-block;padding:5px 12px;border-radius:5px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:rgba(139,92,246,0.15);color:var(--purple-soft);border:1px solid var(--border)}
+.copy-winner-badge{display:inline-block;padding:5px 10px;background:rgba(16,185,129,0.15);color:var(--green);border:1px solid var(--green);border-radius:5px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.copy-title{font-size:24px;font-weight:700;margin-top:4px;letter-spacing:-0.5px}
+.copy-sub{color:var(--muted);font-size:13px;font-style:italic;font-weight:300}
+
+/* Copy content grid */
+.copy-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px;margin-top:18px}
+@media(max-width:900px){.copy-grid{grid-template-columns:1fr}}
+
+.copy-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;border-left:4px solid var(--purple)}
+.copy-headline{font-size:20px;font-weight:800;line-height:1.25;color:var(--white);text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:14px}
+.copy-headline em{color:var(--purple-soft);font-style:normal;background:linear-gradient(180deg,transparent 60%,rgba(139,92,246,0.3) 60%);padding:0 4px}
+.copy-headline u{text-decoration:underline;text-decoration-color:var(--purple);text-decoration-thickness:3px;text-underline-offset:4px}
+.copy-body{font-size:14px;color:var(--text);line-height:1.65;font-weight:300;margin-top:12px}
+.copy-body strong{font-weight:700;color:var(--white)}
+.copy-body em{font-style:normal;color:var(--purple-soft);font-weight:600}
+
+.copy-bullets{list-style:none;margin-top:14px}
+.copy-bullets li{padding:6px 0 6px 24px;position:relative;font-size:14px;font-weight:400}
+.copy-bullets li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;font-size:16px}
+.copy-bullets.x li::before{content:"✗";color:var(--red)}
+.copy-bullets.arrow li::before{content:"→";color:var(--purple-soft)}
+
+.copy-sub-text{font-size:13px;color:var(--muted);margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-weight:300}
+.copy-sub-text strong{color:var(--purple-soft)}
+
+/* Visual sidebar */
+.copy-visual{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px}
+.visual-tag{display:inline-block;font-size:10px;background:rgba(139,92,246,0.15);color:var(--purple-soft);padding:3px 8px;border-radius:4px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.visual-h{font-size:12px;font-weight:700;color:var(--white);margin-top:14px;margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.visual-h:first-of-type{margin-top:0}
+.visual-l{font-size:13px;color:var(--muted);line-height:1.5;font-weight:300}
+
+/* CTA Cards */
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media(max-width:768px){.cta-row{grid-template-columns:1fr}}
+.cta-card{padding:18px 20px;border-radius:10px;border:1px solid;position:relative}
+.cta-a{background:rgba(139,92,246,0.08);border-color:var(--purple)}
+.cta-b{background:rgba(16,185,129,0.08);border-color:var(--green)}
+.cta-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;display:inline-block;padding:3px 8px;border-radius:4px;color:var(--white)}
+.cta-a .cta-eyebrow{background:var(--purple)}
+.cta-b .cta-eyebrow{background:var(--green)}
+.cta-text{font-size:15px;font-weight:600;color:var(--white)}
+.cta-text em{color:var(--purple-soft);font-style:italic}
+
+/* Rules section */
+.rules-box{background:linear-gradient(135deg,rgba(139,92,246,0.08) 0%,rgba(139,92,246,0.02) 100%);border:1px solid var(--purple);border-radius:14px;padding:28px;margin-top:24px}
+.rules-box h3{font-size:18px;color:var(--purple-soft);margin-bottom:14px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.rules-box ul{list-style:none}
+.rules-box li{padding:8px 0 8px 24px;position:relative;font-size:14px;color:var(--text);font-weight:300}
+.rules-box li::before{content:"●";position:absolute;left:0;color:var(--purple);font-size:9px;top:13px}
+
+/* Footer */
+.foot{padding:36px 0;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--border);margin-top:48px;font-weight:300}
+.foot a{color:var(--purple-soft);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="eyebrow">★ Estratégia · Captação Paga · TPIJA 008</div>
+    <h1>15 Copies de Imagem <span>Estática</span></h1>
+    <p>Briefing pronto para o designer · Cruzamento dos top 5 criativos vencedores históricos (volume + CPA) com 10 arquétipos visuais identificados em 19 criativos analisados do feed da Tamara · 2 versões de CTA em cada arte</p>
+    <div class="date">Brito Mídias · 12/06/2026</div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#vencedores" class="section-link">Vencedores Históricos</a>
+    <a href="#arquetipos" class="section-link">Arquétipos</a>
+    <a href="#c1">01</a><a href="#c2">02</a><a href="#c3">03</a><a href="#c4">04</a><a href="#c5">05</a>
+    <a href="#c6">06</a><a href="#c7">07</a><a href="#c8">08</a><a href="#c9">09</a><a href="#c10">10</a>
+    <a href="#c11">11</a><a href="#c12">12</a><a href="#c13">13</a><a href="#c14">14</a><a href="#c15">15</a>
+    <a href="#regras" class="section-link">Regras</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- VENCEDORES -->
+<section id="vencedores">
+  <div class="section-head">
+    <span class="label">01 · Base de Performance</span>
+    <h2>Top 5 criativos vencedores (volume + CPA)</h2>
+    <p>Fonte: relatorio-criativos-imagem.html · 223 vendas combinadas no top 5 com CPA médio de R$ 94. O tema <strong style="color:var(--purple-soft)">"Crie Seu Primeiro Evento"</strong> dominou. 5 das 15 copies novas reativam essa fórmula vencedora.</p>
+  </div>
+  <div class="winners-grid">
+    <div class="winner-card">
+      <div class="w-rank">1</div>
+      <div class="w-name">AD02_TPIJA002_CRIE SEU PRIMEIRO EVENTO 2</div>
+      <div class="w-hook">Crie Seu Primeiro Evento (versão 2)</div>
+      <div class="w-meta">
+        <span><strong>81</strong> vendas</span>
+        <span>CPA <strong>R$ 49</strong></span>
+        <span>CTR 1.64%</span>
+        <span>Spend R$ 4.003</span>
+      </div>
+    </div>
+    <div class="winner-card">
+      <div class="w-rank">2</div>
+      <div class="w-name">AD02_TPIJA001_CRIE SEU PRIMEIRO EVENTO 2</div>
+      <div class="w-hook">Mesma copy, lançamento anterior</div>
+      <div class="w-meta">
+        <span><strong>58</strong> vendas</span>
+        <span>CPA <strong>R$ 100</strong></span>
+        <span>CTR 1.83%</span>
+        <span>Spend R$ 5.820</span>
+      </div>
+    </div>
+    <div class="winner-card">
+      <div class="w-rank">3</div>
+      <div class="w-name">AD01_TPIJA002_CRIE SEU PRIMEIRO EVENTO</div>
+      <div class="w-hook">Versão original (sem o "2")</div>
+      <div class="w-meta">
+        <span><strong>84</strong> vendas</span>
+        <span>CPA <strong>R$ 133</strong></span>
+        <span>CTR 1.58%</span>
+        <span>Spend R$ 11.184</span>
+      </div>
+    </div>
+    <div class="winner-card">
+      <div class="w-rank">4</div>
+      <div class="w-name">AD07_TPIJA003_EVENTOS PRESENCIAIS</div>
+      <div class="w-hook">Eventos Presenciais (genérico)</div>
+      <div class="w-meta">
+        <span><strong>49</strong> vendas</span>
+        <span>CPA <strong>R$ 173</strong></span>
+        <span>CTR 1.41%</span>
+        <span>Spend R$ 8.456</span>
+      </div>
+    </div>
+    <div class="winner-card">
+      <div class="w-rank">5</div>
+      <div class="w-name">AD19_TPIJA003_12 EVENTOS 5 ESTADOS 2 PAISES</div>
+      <div class="w-hook">Escala geográfica</div>
+      <div class="w-meta">
+        <span><strong>35</strong> vendas</span>
+        <span>CPA <strong>R$ 143</strong></span>
+        <span>CTR 1.08%</span>
+        <span>Spend R$ 5.005</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARQUÉTIPOS -->
+<section id="arquetipos">
+  <div class="section-head">
+    <span class="label">02 · Mapeamento Visual</span>
+    <h2>10 arquétipos identificados em 19 criativos do feed</h2>
+    <p>Padrões visuais e estruturais que se repetem nos criativos do feed atual da Tamara. As 15 copies novas distribuem entre esses arquétipos, priorizando os vencedores históricos.</p>
+  </div>
+  <div class="archetypes">
+    <div class="archetype"><div class="a-label">★ #1 Histórico</div><div class="a-name">Crie Primeiro Evento + Data</div></div>
+    <div class="archetype"><div class="a-label">★ #5 Histórico</div><div class="a-name">Escala 12 eventos 5 estados</div></div>
+    <div class="archetype"><div class="a-label">Vencedor</div><div class="a-name">Promessa Multimilionária</div></div>
+    <div class="archetype"><div class="a-label">Vencedor</div><div class="a-name">Bullet de Benefícios</div></div>
+    <div class="archetype"><div class="a-label">Vencedor</div><div class="a-name">Comparação Pocket vs Grande</div></div>
+    <div class="archetype"><div class="a-label">Apoio</div><div class="a-name">Urgência / Virada de Lote</div></div>
+    <div class="archetype"><div class="a-label">Apoio</div><div class="a-name">Curiosidade / FOMO</div></div>
+    <div class="archetype"><div class="a-label">Apoio</div><div class="a-name">Objeção do Prospect</div></div>
+    <div class="archetype"><div class="a-label">Apoio</div><div class="a-name">Visual Conceitual (Funil)</div></div>
+    <div class="archetype"><div class="a-label">Apoio</div><div class="a-name">Pergunta Provocativa</div></div>
+  </div>
+</section>
+
+<!-- ========= COPIES ========= -->
+
+<!-- COPY 01 -->
+<section class="copy-block" id="c1">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">01</div>
+      <span class="copy-arch">Crie Primeiro Evento + Data</span>
+      <span class="copy-winner-badge">★ Reativa Vencedor #1 (CPA R$ 49)</span>
+    </div>
+    <div class="copy-title">A fórmula campeã do TPIJA002, atualizada para 008</div>
+    <div class="copy-sub">Reativa o tema que mais vendeu na história (81 vendas, CPA R$ 49), agora com bullets de remoção de objeção</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">CRIE O SEU PRIMEIRO EVENTO PRESENCIAL <u>POCKET</u> EM APENAS <em>2 DIAS</em></div>
+      <div class="copy-body">SEM PRECISAR DE MUITOS SEGUIDORES, SEM SER UMA AUTORIDADE E COM UM <strong>INVESTIMENTO BAIXÍSSIMO</strong>.</div>
+      <ul class="copy-bullets">
+        <li>40 pessoas qualificadas no seu primeiro evento</li>
+        <li>Conversão de até 70% no pitch ao vivo</li>
+        <li>Replicável em qualquer cidade</li>
+      </ul>
+      <div class="copy-sub-text"><strong>Data:</strong> Sábado 27/07 das 9h às 17h · Domingo 28/07 das 9h às 12h · Online no Zoom</div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em palco ou retrato com fundo dourado · sorriso, postura confiante · recortada à direita</div>
+      <div class="visual-h">Cards de data</div>
+      <div class="visual-l">2 cards marrom/dourado lado a lado (sábado e domingo)</div>
+      <div class="visual-h">Tag</div>
+      <div class="visual-l">Zoom (azul) abaixo dos cards</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 02 -->
+<section class="copy-block" id="c2">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">02</div>
+      <span class="copy-arch">Promessa Multimilionária</span>
+      <span class="copy-winner-badge">Variação do AD #1</span>
+    </div>
+    <div class="copy-title">Crie + escala financeira concreta</div>
+    <div class="copy-sub">Combina o vencedor "Crie Seu Primeiro Evento" com a promessa de R$ 400k</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">SEU PRIMEIRO EVENTO PRESENCIAL POCKET PODE FATURAR <em>R$ 400 MIL</em></div>
+      <div class="copy-body">Em 2 dias de imersão online você sai com o método completo. <strong>Sem precisar ser autoridade. Sem precisar de muitos seguidores. Sem precisar de palco grande.</strong></div>
+      <ul class="copy-bullets">
+        <li>40 pessoas qualificadas</li>
+        <li>Conversão de até 70%</li>
+        <li>Baixo custo, alta margem</li>
+        <li>Modelo americano validado em 7 países</li>
+      </ul>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em palco com microfone headset · ambiente sofisticado · luz quente</div>
+      <div class="visual-h">Destaque</div>
+      <div class="visual-l">"R$ 400 MIL" em amarelo/destacado · pode ter selo "MÉTODO VALIDADO" no canto</div>
+      <div class="visual-h">Cor de fundo</div>
+      <div class="visual-l">Marrom escuro com gradiente para destacar a foto</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 03 -->
+<section class="copy-block" id="c3">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">03</div>
+      <span class="copy-arch">Crie Primeiro Evento + Data</span>
+      <span class="copy-winner-badge">Variação Vencedor #1</span>
+    </div>
+    <div class="copy-title">Distância em dias (urgência sutil)</div>
+    <div class="copy-sub">Mesmo tema, novo ângulo emocional</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">SEU PRIMEIRO EVENTO PRESENCIAL POCKET ESTÁ A <em>2 DIAS DE DISTÂNCIA</em></div>
+      <div class="copy-body">O <strong>método americano multimilionário</strong>, agora aplicado no Brasil. Para 40 pessoas. Sem precisar de palco grande, sem precisar de audiência gigante, sem depender de tráfego pago.</div>
+      <div class="copy-sub-text"><strong>Investimento promocional por tempo limitado.</strong> Sábado e domingo, 27 e 28 de julho. Ao vivo no Zoom.</div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em retrato (vestido branco, mão no queixo, sorriso suave)</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Branco CAIXA ALTA · "2 DIAS DE DISTÂNCIA" em itálico/amarelo</div>
+      <div class="visual-h">Fundo</div>
+      <div class="visual-l">Gradiente marrom + dourado claro</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 04 -->
+<section class="copy-block" id="c4">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">04</div>
+      <span class="copy-arch">Pergunta de Identificação</span>
+      <span class="copy-winner-badge">Vencedor Reativado</span>
+    </div>
+    <div class="copy-title">Pergunta direta para iniciante</div>
+    <div class="copy-sub">Bate na persona "nunca fiz nada presencial mas quero começar grande"</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">NUNCA FEZ UM EVENTO E QUER FATURAR <em>R$ 100 MIL</em> NO PRIMEIRO?</div>
+      <div class="copy-body">O <strong>método pocket americano</strong> destrava isso pra você. Em 2 dias de imersão online, você sai sabendo cada passo do funil. Do convite ao pitch que fecha alto ticket.</div>
+      <ul class="copy-bullets">
+        <li>Sem audiência gigante</li>
+        <li>Sem orçamento de tráfego pago</li>
+        <li>Sem 6 meses de preparação</li>
+      </ul>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em escritório · olhar pensativo · ambiente clean</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Termina com "?" grande · "R$ 100 MIL" em amarelo destacado</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa verde com chamada</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 05 -->
+<section class="copy-block" id="c5">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">05</div>
+      <span class="copy-arch">Comparação Pocket vs Grande</span>
+    </div>
+    <div class="copy-title">Tabela dupla coluna</div>
+    <div class="copy-sub">Quebra a crença "evento bom é evento grande" com matemática visual</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">POCKET <em>vs</em> GRANDE</div>
+      <div class="copy-body" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px">
+        <div>
+          <strong style="color:var(--green);display:block;margin-bottom:8px">POCKET ✓</strong>
+          <span style="font-size:13px;line-height:2">Baixo custo<br>Alta margem<br>Logística simples<br>Conversão até 70%<br>Replicável</span>
+        </div>
+        <div>
+          <strong style="color:var(--red);display:block;margin-bottom:8px">GRANDE ✗</strong>
+          <span style="font-size:13px;line-height:2">Custo alto<br>Margem reduzida<br>Logística complexa<br>Conversão até 5%<br>1 a 2 por ano</span>
+        </div>
+      </div>
+      <div class="copy-sub-text"><strong>70% das vendas em uma sala de 20 pessoas. Ou 5% em uma de 500. Você escolhe.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Layout</div>
+      <div class="visual-l">2 colunas centralizadas · POCKET (esq, verde) · GRANDE (dir, vermelho)</div>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara sorrindo grande, recortada na base · vestido escuro</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">"POCKET" em verde · "GRANDE" em vermelho · "vs" em branco no meio</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 06 -->
+<section class="copy-block" id="c6">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">06</div>
+      <span class="copy-arch">Escala 12 eventos 5 estados</span>
+      <span class="copy-winner-badge">★ Reativa Vencedor #5 (35 vendas)</span>
+    </div>
+    <div class="copy-title">A escala geográfica do método</div>
+    <div class="copy-sub">Tema vencedor histórico, ângulo aspiracional para autoridade já estabelecida</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">DE <em>1 EVENTO POR ANO</em> NA SUA CIDADE PARA <u>12 EVENTOS POR ANO</u> EM 5 ESTADOS E 2 PAÍSES</div>
+      <ul class="copy-bullets">
+        <li>Fazer múltiplas edições por mês</li>
+        <li>Expandir pra outras cidades</li>
+        <li>Levar eventos pra fora do país</li>
+        <li>Multiplicar faturamento e alcance</li>
+      </ul>
+      <div class="copy-sub-text"><strong>Aprenda o sistema completo de expansão geográfica em 2 dias de imersão online.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em palco com microfone headset, postura de autoridade · luz quente</div>
+      <div class="visual-h">Destaque</div>
+      <div class="visual-l">"12 EVENTOS/ANO" e "EM 5 ESTADOS + 2 PAÍSES" em caixa amarela com borda dourada</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa amarela: "Aprenda o sistema completo de expansão geográfica"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 07 -->
+<section class="copy-block" id="c7">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">07</div>
+      <span class="copy-arch">Urgência / Virada de Lote</span>
+    </div>
+    <div class="copy-title">Última chance com valor reduzido</div>
+    <div class="copy-sub">Para rodar quando o lote 1 estiver passando dos 70% vendido</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">O <em>LOTE ATUAL</em> ESTÁ ACABANDO</div>
+      <div class="copy-body">Você entra agora com o valor reduzido ou paga mais caro em poucas horas. <strong>Método validado em mais de 7 países.</strong> Inscrições abertas até o lote esgotar.</div>
+      <div class="copy-sub-text"><strong>27 e 28 de julho · Online no Zoom · R$ 27 (de R$ 997)</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Fita</div>
+      <div class="visual-l">Vermelha no topo com megafone 📢 + "O LOTE ATUAL ESTÁ ACABANDO!"</div>
+      <div class="visual-h">Selo</div>
+      <div class="visual-l">Dourado lateral "INSCRIÇÕES ABERTAS!" estilo moeda</div>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara sorrindo, vestido branco, recortada na base</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa verde "GARANTA SUA VAGA AGORA"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link antes do lote virar</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga antes da virada</div></div>
+  </div>
+</section>
+
+<!-- COPY 08 -->
+<section class="copy-block" id="c8">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">08</div>
+      <span class="copy-arch">Bullet de Benefícios</span>
+      <span class="copy-winner-badge">Padrão Vencedor #4</span>
+    </div>
+    <div class="copy-title">Comparação tráfego vs pocket</div>
+    <div class="copy-sub">Especialmente forte para mentores que já estão investindo pesado em tráfego</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">EVENTOS PRESENCIAIS <u>POCKET</u></div>
+      <ul class="copy-bullets">
+        <li>8 a 15 pessoas qualificadas</li>
+        <li>Investimento <strong>80% menor</strong> que tráfego pago</li>
+        <li>Conversão de <strong>até 70%</strong> ao vivo</li>
+        <li>Zero no-shows</li>
+      </ul>
+      <div class="copy-body">Enquanto você gasta <strong>R$ 30 mil em tráfego</strong> pra fechar 2 ou 3 mentorias, mentores estão usando eventos pocket pra vender de <strong>8 a 30 mentorias</strong> de alto ticket, com público 100% qualificado e presente.</div>
+      <div class="copy-sub-text"><strong>Aprenda o método completo em 2 dias.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em palco de costas para câmera, plateia visível · sala com público real</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">"EVENTOS PRESENCIAIS POCKET" em caixa amarela destacada</div>
+      <div class="visual-h">Bullets</div>
+      <div class="visual-l">Checks verdes grandes ✓ · texto branco</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa amarela "Aprenda o método completo em 2 dias"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 09 -->
+<section class="copy-block" id="c9">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">09</div>
+      <span class="copy-arch">Objeção do Prospect</span>
+    </div>
+    <div class="copy-title">A voz do prospect entre aspas</div>
+    <div class="copy-sub">Único criativo onde a foto principal NÃO é da Tamara, é da persona arquetípica</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">"MAS EU NUNCA FIZ UM EVENTO NA VIDA"</div>
+      <div class="copy-body"><strong>Exatamente por isso a Jornada da Autoridade existe.</strong></div>
+      <ul class="copy-bullets arrow">
+        <li>Passo a passo completo do seu primeiro evento pocket</li>
+        <li>Como atrair apenas pessoas qualificadas</li>
+        <li>Pitch que vende naturalmente, sem parecer vendedor</li>
+        <li>Logística simplificada de A a Z</li>
+        <li>Expansão pra outros estados e países</li>
+      </ul>
+      <div class="copy-sub-text"><strong>Método validado. Sem enrolação. Só o que funciona.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Mulher (NÃO Tamara) · pensativa, olhar para cima, dedo no queixo · representa a persona</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Entre aspas, fonte serif itálico · estilo de fala</div>
+      <div class="visual-h">Resposta</div>
+      <div class="visual-l">Círculo amarelo estilo "marca-texto desenhada à mão" em volta de "Jornada da Autoridade"</div>
+      <div class="visual-h">Bullets</div>
+      <div class="visual-l">Setas → roxas, texto branco</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 10 -->
+<section class="copy-block" id="c10">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">10</div>
+      <span class="copy-arch">Visual Conceitual (Funil)</span>
+    </div>
+    <div class="copy-title">A matemática do método em um funil</div>
+    <div class="copy-sub">Único criativo SEM foto, totalmente conceitual, alto impacto educativo</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">O MÉTODO: EVENTO POCKET <em>(10 PESSOAS)</em></div>
+      <div class="copy-body" style="background:rgba(139,92,246,0.06);padding:18px;border-radius:8px;border:1px solid var(--border);text-align:center;margin-top:12px">
+        <div style="font-size:14px;color:var(--purple-soft);font-weight:600">Entrada</div>
+        <div style="font-size:18px;font-weight:700;margin:6px 0">Pitch estratégico</div>
+        <div style="font-size:24px;color:var(--purple);margin:8px 0">↓</div>
+        <div style="font-size:14px;color:var(--purple-soft);font-weight:600">Saída</div>
+        <div style="font-size:18px;font-weight:700;margin:6px 0">7 vendas de R$ 30k</div>
+        <div style="font-size:24px;color:var(--purple);margin:8px 0">↓</div>
+        <div style="font-size:14px;color:var(--purple-soft);font-weight:600">Resultado</div>
+        <div style="font-size:28px;font-weight:800;color:var(--green);margin:6px 0">R$ 210.000 em 1 dia</div>
+      </div>
+      <div class="copy-sub-text">É assim que mentores estão vendendo alto ticket sem desperdiçar em tráfego. <strong>Eventos presenciais pocket: simples, lucrativos, com conversão previsível.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Elemento central</div>
+      <div class="visual-l">Funil grande amarelo/dourado em 3D · com brilho na ponta</div>
+      <div class="visual-h">Setas explicativas</div>
+      <div class="visual-l">Esq: "Pitch estratégico" entra · Dir: "7 vendas de R$ 30k" sai · Embaixo: "R$ 210k em 1 dia" circulado em branco manuscrito</div>
+      <div class="visual-h">Fundo</div>
+      <div class="visual-l">Escuro, com sombra de palestra/evento ao fundo (10% opacidade)</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa amarela "Domine a estratégia completa"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 11 -->
+<section class="copy-block" id="c11">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">11</div>
+      <span class="copy-arch">Transformação</span>
+      <span class="copy-winner-badge">Padrão Vencedor #4 (Eventos Presenciais)</span>
+    </div>
+    <div class="copy-title">Do zero ao lucro</div>
+    <div class="copy-sub">Hook clássico de transformação · funciona para iniciante e intermediário</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">DO ZERO AO <em>LUCRO</em> COM EVENTOS PRESENCIAIS POCKET</div>
+      <div class="copy-body">DESCUBRA O MÉTODO QUE JÁ <strong>GEROU MILHÕES NOS EUA</strong> E AGORA ESTÁ TRANSFORMANDO NEGÓCIOS NO BRASIL.</div>
+      <div class="copy-sub-text"><strong>27 e 28 de julho · Online no Zoom</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em palco · andando, em movimento · iluminação dramática</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Branca caixa alta · "LUCRO" em itálico/destaque</div>
+      <div class="visual-h">Fundo</div>
+      <div class="visual-l">Cena de palco real com plateia desfocada · overlay marrom/dourado</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa verde "QUERO PARTICIPAR"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 12 -->
+<section class="copy-block" id="c12">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">12</div>
+      <span class="copy-arch">Curiosidade / FOMO</span>
+    </div>
+    <div class="copy-title">Pergunta de FOMO</div>
+    <div class="copy-sub">Gera curiosidade no feed · alta taxa de pausa visual</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">VOCÊ AINDA <u>NÃO ESTÁ SABENDO</u>?</div>
+      <div class="copy-body">A <strong>Imersão Jornada da Autoridade</strong> vai te ensinar a criar um evento presencial pocket no modelo americano, altamente lucrativo, para 40 pessoas.</div>
+      <ul class="copy-bullets">
+        <li>Sem precisar ser uma autoridade</li>
+        <li>Com baixo custo e alta margem de lucro</li>
+        <li>Valor promocional por tempo limitado</li>
+      </ul>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara sorrindo grande, vestido branco, mão no queixo, à direita</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Branca CAIXA ALTA gigante · ocupa metade esquerda</div>
+      <div class="visual-h">Bullets</div>
+      <div class="visual-l">Losangos ◆ pequenos em marrom (variação mais sutil que check)</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Tag Zoom + caixa verde "INSCREVA-SE JÁ"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 13 -->
+<section class="copy-block" id="c13">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">13</div>
+      <span class="copy-arch">Comparação Matemática</span>
+    </div>
+    <div class="copy-title">1 evento grande vs 12 pockets (matemática anual)</div>
+    <div class="copy-sub">Funciona muito bem para quem já faz 1 evento grande por ano</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">1 EVENTO GRANDE/ANO = <em>R$ 200 MIL</em> DE LUCRO. <u>12 EVENTOS POCKET/ANO = R$ 2 MILHÕES+ DE LUCRO.</u></div>
+      <div class="copy-body"><strong>A matemática é simples:</strong> eventos menores, mais frequentes e mais lucrativos batem 1 evento grande difícil de organizar.</div>
+      <div class="copy-sub-text">Autoridades que vivem DE eventos fazem múltiplas edições mensais. <strong>Aprenda a estrutura de eventos recorrentes.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Fundo</div>
+      <div class="visual-l">Preto com nomes dos 12 meses do ano em tipografia grande cinza · carimbos vermelhos "EVENTO MARCADO" cobrindo cada mês</div>
+      <div class="visual-h">Texto central</div>
+      <div class="visual-l">Comparação em 2 linhas · "R$ 200k" branco · "R$ 2MM+" amarelo destacado</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa amarela "Aprenda a estrutura de eventos recorrentes"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 14 -->
+<section class="copy-block" id="c14">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">14</div>
+      <span class="copy-arch">Pergunta Provocativa + Split Visual</span>
+    </div>
+    <div class="copy-title">Por que grandes estão perdendo para pequenos</div>
+    <div class="copy-sub">Pergunta com fotos reais de eventos em split-screen · alta retenção</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">POR QUE EVENTOS GRANDES ESTÃO <em>PERDENDO PARA EVENTOS PEQUENOS</em>?</div>
+      <div class="copy-body"><strong>Menos pessoas. Mais lucro. Mais conversão.</strong> Enquanto a maioria ainda tenta lotar auditórios, as maiores autoridades descobriram que eventos menores e exclusivos vendem muito mais.</div>
+      <div class="copy-sub-text"><strong>Veja por que isso está mudando o mercado.</strong></div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Split-screen</div>
+      <div class="visual-l">2 fotos reais lado a lado: ESQ auditório lotado com luz roxa/cyber · DIR jantar pocket íntimo de 6-7 pessoas em mesa redonda · arredondadas em cantos suaves</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">Embaixo das fotos, em branco CAIXA ALTA · "PERDENDO PARA EVENTOS PEQUENOS" em amarelo</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa amarela "Veja por que isso está mudando o mercado"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- COPY 15 -->
+<section class="copy-block" id="c15">
+  <div class="copy-head">
+    <div class="copy-meta-row">
+      <div class="copy-num">15</div>
+      <span class="copy-arch">Crie Primeiro Evento (Versão Final)</span>
+      <span class="copy-winner-badge">★ Reforço Vencedor #1 + #3 (165 vendas combinadas)</span>
+    </div>
+    <div class="copy-title">A copy mais completa do tema vencedor</div>
+    <div class="copy-sub">Combina todos os ângulos vencedores do "Crie Seu Primeiro Evento" em uma só arte · prioridade alta</div>
+  </div>
+  <div class="copy-grid">
+    <div class="copy-content">
+      <div class="copy-headline">CRIE SEU <u>PRIMEIRO</u> EVENTO PRESENCIAL POCKET <em>DO ZERO</em></div>
+      <div class="copy-body"><strong>Mesmo se você nunca fez nada presencial.</strong> Mesmo se você tem menos de 5 mil seguidores. Mesmo se você não se sente uma autoridade.</div>
+      <ul class="copy-bullets">
+        <li>Sem palco grande</li>
+        <li>Sem audiência gigante</li>
+        <li>Sem orçamento de R$ 30 mil em tráfego</li>
+        <li>Sem 6 meses de preparação</li>
+      </ul>
+      <div class="copy-sub-text"><strong>40 pessoas qualificadas. R$ 400 mil de faturamento.</strong> É o que você consegue em 2 dias de imersão online ao vivo, dias 27 e 28 de julho.</div>
+    </div>
+    <div class="copy-visual">
+      <span class="visual-tag">Briefing visual</span>
+      <div class="visual-h">Foto</div>
+      <div class="visual-l">Tamara em ambiente de evento real · plateia ao fundo desfocada · ela olhando para a câmera</div>
+      <div class="visual-h">Headline</div>
+      <div class="visual-l">CAIXA ALTA branco · "PRIMEIRO" sublinhado · "DO ZERO" em itálico amarelo</div>
+      <div class="visual-h">Bullets</div>
+      <div class="visual-l">Checks verdes ✓ grandes · alta leitura</div>
+      <div class="visual-h">Cards de data</div>
+      <div class="visual-l">2 cards lado a lado: SÁBADO 27/07 9h-17h · DOMINGO 28/07 9h-12h</div>
+      <div class="visual-h">CTA inferior</div>
+      <div class="visual-l">Caixa verde grande "INSCREVA-SE JÁ"</div>
+    </div>
+  </div>
+  <div class="cta-row">
+    <div class="cta-card cta-a"><span class="cta-eyebrow">CTA A · Orgânico</span><div class="cta-text">Comenta <em>JA</em> para receber o link do evento</div></div>
+    <div class="cta-card cta-b"><span class="cta-eyebrow">CTA B · Pago</span><div class="cta-text">Clique em <em>Saiba Mais</em> e garante sua vaga</div></div>
+  </div>
+</section>
+
+<!-- REGRAS -->
+<section id="regras">
+  <div class="section-head">
+    <span class="label">03 · Regras Universais</span>
+    <h2>O que TODAS as 15 artes precisam respeitar</h2>
+  </div>
+  <div class="rules-box">
+    <h3>★ Padrão obrigatório</h3>
+    <ul>
+      <li><strong>Zero travessões</strong> em qualquer copy (regra global). Quando preciso conectar ideias, vírgula, ponto final, dois pontos ou parênteses.</li>
+      <li><strong>2 versões de CTA por arte</strong>: mesma imagem, só muda a chamada final (orgânico vs pago).</li>
+      <li><strong>Logo Jornada da Autoridade</strong> sempre no topo (dourado ou branco, dependendo do fundo).</li>
+      <li><strong>Tipografia</strong>: sans-serif bold (estilo Montserrat/Bebas Neue) para headlines em CAIXA ALTA. Itálico ou sublinhado em 1 a 3 palavras-chave por arte, nunca mais que isso.</li>
+      <li><strong>Paleta da Tamara</strong>: dourado, marrom escuro, branco, preto. Acentos amarelos em palavras de destaque. Vermelho APENAS em criativos de urgência/virada de lote.</li>
+      <li><strong>Foto da Tamara</strong> em 13 das 15 copies (exceções: #9 com persona arquetípica e #10 totalmente conceitual com funil).</li>
+      <li><strong>Tag "Online no Zoom"</strong> em criativos com data + ícone azul de câmera.</li>
+      <li><strong>Cards de data</strong> em marrom dourado quando aplicável (sábado 27/07 e domingo 28/07).</li>
+      <li><strong>Datas corretas TPIJA008</strong>: 27 e 28 de julho de 2026 · Online ao vivo no Zoom · R$ 27 (de R$ 997).</li>
+      <li><strong>Sem typos</strong>. As versões anteriores tinham "elevadov" e "a gora" que NÃO devem se repetir.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<div class="foot">
+  <div class="container">
+    15 Copies de Imagem · TPIJA 008 · Imersão Jornada da Autoridade · Tamara Damares · Brito Mídias · 12/06/2026 · <a href="relatorio-criativos-imagem.html">Voltar ao relatório de criativos</a>
+  </div>
+</div>
+
+</body></html>
