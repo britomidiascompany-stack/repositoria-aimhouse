@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing de Página · Checklist Coringa · Tamara Damares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --roxo:#7C3AED;
+  --roxo-dark:#5B21B6;
+  --roxo-deep:#3B0F73;
+  --roxo-light:#A78BFA;
+  --roxo-xlight:#EDE9FE;
+  --preto:#0A0A0A;
+  --ink:#141018;
+  --cinza:#5B5566;
+  --linha:#E7E3EE;
+  --bg:#FFFFFF;
+  --bg-soft:#FAF9FC;
+  --verde:#10b981;
+  --vermelho:#ef4444;
+}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-weight:300;font-size:16px}
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ===== HERO ===== */
+.hero{
+  background:
+    radial-gradient(1100px 500px at 78% -10%, rgba(124,58,237,.55), transparent 60%),
+    linear-gradient(150deg,#0A0A0A 0%,#17111F 45%,#3B0F73 100%);
+  color:#fff;padding:64px 28px 72px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 800px 450px at 60% 40%, #000 40%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 800px 450px at 60% 40%, #000 40%, transparent 80%);
+  pointer-events:none
+}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:36px}
+.brand svg{width:44px;height:44px}
+.brand .word{display:flex;align-items:center;gap:12px;font-weight:300}
+.brand .word b{font-weight:800;font-size:20px}
+.brand .word .bar{width:2px;height:28px;background:rgba(255,255,255,.55)}
+.brand .word span{font-size:20px;letter-spacing:.22em}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo-light);margin-bottom:18px}
+.hero .eyebrow::before{content:"";width:34px;height:2px;background:var(--roxo-light);border-radius:2px}
+.hero h1{font-size:52px;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+.hero h1 span{color:var(--roxo-light)}
+.hero p{font-size:18px;color:rgba(255,255,255,.82);max-width:720px;font-weight:300}
+.hero .date-tag{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:8px 18px;border:1px solid var(--roxo-light);border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--roxo-light)}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha);padding:12px 0}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;align-items:center}
+.nav a{color:var(--cinza);text-decoration:none;padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap;transition:all .15s;border:1px solid transparent;letter-spacing:.02em}
+.nav a:hover{color:var(--roxo);background:var(--roxo-xlight);border-color:var(--roxo-xlight)}
+.nav .n-section{color:var(--roxo);border:1px solid var(--linha)}
+
+/* ===== SECTIONS ===== */
+section{padding:56px 0}
+.soft{background:var(--bg-soft)}
+.section-label{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo);margin-bottom:16px}
+.section-label::before{content:"";width:34px;height:2px;background:var(--roxo);border-radius:2px}
+section h2{font-size:30px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+section .lead{font-size:16px;color:var(--cinza);max-width:780px;font-weight:300}
+
+/* Grid resumo produto */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+@media(max-width:900px){.summary{grid-template-columns:repeat(2,1fr)}}
+.mini-card{border:1px solid var(--linha);border-radius:14px;padding:18px 20px;background:var(--bg-soft)}
+.mini-card small{color:var(--roxo);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:6px}
+.mini-card b{font-size:20px;font-weight:700;color:var(--ink)}
+.mini-card .sub{font-size:12px;color:var(--cinza);margin-top:4px;display:block}
+
+/* Regras Design */
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+@media(max-width:900px){.rules-grid{grid-template-columns:1fr}}
+.rule{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:22px 24px}
+.rule .head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rule .head .pill{background:var(--roxo-xlight);color:var(--roxo);padding:4px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.rule h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.rule ul{list-style:none;margin-top:10px}
+.rule ul li{padding:6px 0 6px 22px;position:relative;font-size:14px;color:var(--ink)}
+.rule ul li::before{content:"●";position:absolute;left:0;color:var(--roxo);font-size:9px;top:12px}
+
+/* Dobra */
+.dobra{padding:48px 0;border-bottom:1px solid var(--linha)}
+.dobra:last-of-type{border-bottom:none}
+.dobra-header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.d-num{background:linear-gradient(90deg,var(--roxo),var(--roxo-dark));color:#fff;padding:6px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.d-tone{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid}
+.d-emo{color:#c026d3;border-color:#f0abfc;background:#fdf4ff}
+.d-rac{color:var(--verde);border-color:#a7f3d0;background:#ecfdf5}
+.d-fn{color:var(--cinza);font-size:13px;font-style:italic}
+.dobra h3{font-size:24px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+
+/* Card de copy */
+.copy-card{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:26px 28px;margin-top:18px;border-left:4px solid var(--roxo)}
+.copy-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--roxo);margin-bottom:12px}
+.copy-h1{font-size:26px;font-weight:800;line-height:1.15;letter-spacing:-.01em;margin-bottom:10px;color:var(--ink)}
+.copy-h2{font-size:18px;font-weight:500;line-height:1.4;color:var(--cinza);margin-bottom:14px}
+.copy-body{font-size:15px;line-height:1.7;color:var(--ink);margin-top:12px}
+.copy-body p{margin-bottom:10px}
+.copy-body strong{font-weight:700;color:var(--ink)}
+.copy-body em{font-style:normal;color:var(--roxo);font-weight:600}
+.copy-body u{text-decoration:underline;text-decoration-color:var(--roxo);text-decoration-thickness:2px;text-underline-offset:3px}
+
+ul.checks{list-style:none;margin:10px 0}
+ul.checks li{padding:6px 0 6px 26px;position:relative;font-size:15px}
+ul.checks li::before{content:"✓";position:absolute;left:0;color:var(--verde);font-weight:700;font-size:16px}
+ul.checks.x li::before{content:"✗";color:var(--vermelho)}
+ul.checks.arrow li::before{content:"→";color:var(--roxo)}
+
+/* Design brief card */
+.design-brief{background:var(--bg-soft);border:1px solid var(--linha);border-radius:14px;padding:22px 24px;margin-top:16px}
+.design-brief .db-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--roxo-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.design-brief .db-label::before{content:"✎";font-size:14px}
+.design-brief .db-row{display:grid;grid-template-columns:150px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed var(--linha)}
+.design-brief .db-row:last-child{border-bottom:none}
+.design-brief .db-row .k{font-size:12px;font-weight:700;color:var(--roxo);text-transform:uppercase;letter-spacing:.06em}
+.design-brief .db-row .v{font-size:14px;color:var(--ink);line-height:1.5}
+.design-brief .db-row .v strong{color:var(--roxo-dark)}
+
+/* Transição */
+.transicao{background:linear-gradient(90deg,var(--roxo-deep),var(--roxo-dark));color:#fff;padding:32px 28px;border-radius:16px;text-align:center;margin:24px 0}
+.transicao .t-label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo-light);margin-bottom:10px;font-weight:600}
+.transicao h4{font-size:24px;font-weight:700;font-style:italic;line-height:1.3}
+
+/* Stack table */
+.stack{background:#fff;border:1px solid var(--linha);border-radius:14px;padding:20px 24px;margin-top:14px}
+.stack-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--linha);font-size:15px}
+.stack-row:last-of-type{border-bottom:2px solid var(--ink)}
+.stack-row .item{flex:1;color:var(--ink)}
+.stack-row .price{font-weight:700;color:var(--cinza);white-space:nowrap;margin-left:12px}
+.stack-row.bonus .item::before{content:"BÔNUS · ";color:var(--roxo);font-weight:700;font-size:11px;letter-spacing:.1em}
+.stack-row.total{padding-top:16px;font-size:17px;border-bottom:none}
+.stack-row.total .item{font-weight:800;color:var(--ink)}
+.stack-row.total .price{color:var(--ink);text-decoration:line-through;font-weight:600}
+.stack-final{margin-top:18px;padding:22px;background:linear-gradient(90deg,var(--roxo),var(--roxo-dark));color:#fff;border-radius:12px;text-align:center}
+.stack-final .from{color:rgba(255,255,255,.7);font-size:13px;text-decoration:line-through}
+.stack-final .now{font-size:15px;color:rgba(255,255,255,.85);margin-top:6px}
+.stack-final .now b{font-size:42px;color:#fff;font-weight:800;display:block;margin-top:6px}
+.stack-final .install{font-size:12px;color:rgba(255,255,255,.7);margin-top:6px}
+
+/* FAQ */
+.faq-item{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:16px 22px;margin-bottom:10px}
+.faq-item .q{font-weight:700;font-size:15px;color:var(--ink);margin-bottom:6px}
+.faq-item .a{font-size:14px;color:var(--cinza);line-height:1.6}
+
+/* Note */
+.note{background:#fdf4ff;border-left:4px solid #c026d3;padding:14px 18px;border-radius:6px;margin-top:14px;font-size:13px;color:#86198f}
+.note strong{color:#86198f;font-weight:700}
+
+/* Footer */
+.foot{background:#141018;color:rgba(255,255,255,.7);padding:40px 28px;text-align:center;font-size:13px;font-weight:300}
+.foot a{color:var(--roxo-light);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon>
+        <polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+    <div class="eyebrow">Briefing de Página · Direcionamento pro Designer</div>
+    <h1>Página de Vendas · <span>Checklist Coringa</span></h1>
+    <p>Produto digital de baixo ticket que entrega todo o kit para organizar eventos presenciais (Pocket, Jantar, Mansão) com o auxílio de IA. Este documento traz a copy pronta das 11 dobras + direcionamento visual para produção.</p>
+    <div class="date-tag">Brito Mídias · 13/06/2026</div>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#produto" class="n-section">Produto</a>
+    <a href="#regras" class="n-section">Regras de Design</a>
+    <a href="#d1">1 · Promessa</a>
+    <a href="#d2">2 · Identificação</a>
+    <a href="#d3">3 · Roadmap</a>
+    <a href="#d4">4 · Formatos</a>
+    <a href="#d5">5 · Depoimentos</a>
+    <a href="#d6">6 · Pra Quem É</a>
+    <a href="#d7">7 · Bônus</a>
+    <a href="#d8">8 · Quem É</a>
+    <a href="#d9">9 · Reforço</a>
+    <a href="#d10">10 · Garantia</a>
+    <a href="#d11">11 · Stack</a>
+    <a href="#d12">12 · FAQ</a>
+  </div>
+</nav>
+
+<!-- ===== PRODUTO ===== -->
+<section id="produto">
+  <div class="container">
+    <div class="section-label">01 · Resumo do Produto</div>
+    <h2>O que é o Checklist Coringa</h2>
+    <p class="lead">Kit digital que centraliza tudo que a pessoa precisa para organizar um evento presencial de alta conversão. Divide o material por formato (Pocket, Jantar, Mansão) e vem com um prompt validado para ChatGPT/Claude conduzir a montagem passo a passo com o comprador.</p>
+
+    <div class="summary">
+      <div class="mini-card">
+        <small>Nome</small>
+        <b>Checklist Coringa</b>
+        <span class="sub">Da Tamara Damares</span>
+      </div>
+      <div class="mini-card">
+        <small>Preço</small>
+        <b>R$ 27,00</b>
+        <span class="sub">de R$ 297 · lote promocional</span>
+      </div>
+      <div class="mini-card">
+        <small>Entrega</small>
+        <b>Digital · Imediata</b>
+        <span class="sub">PDF interativo + prompt IA + área simples</span>
+      </div>
+      <div class="mini-card">
+        <small>Garantia</small>
+        <b>7 dias</b>
+        <span class="sub">Incondicional</span>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:22px">
+      <strong>Prova social do método:</strong> Checklist validado em mais de <strong>100 eventos</strong> executados pela Tamara e alunas, com <strong>R$ 10 milhões</strong> gerados diretamente nos eventos dela e <strong>R$ 50 milhões</strong> gerados pelas alunas usando a mesma metodologia.
+    </div>
+  </div>
+</section>
+
+<!-- ===== REGRAS DE DESIGN ===== -->
+<section id="regras" class="soft">
+  <div class="container">
+    <div class="section-label">02 · Regras de Design</div>
+    <h2>Como esta página deve ser produzida</h2>
+    <p class="lead">Este documento (o briefing) usa a identidade da Brito Mídias. A página final é da Tamara e deve seguir a paleta e tipografia dela, com uma diferença crucial em relação às páginas anteriores: aqui a imagem principal é o produto, não a expert.</p>
+
+    <div class="rules-grid">
+      <div class="rule">
+        <div class="head">
+          <span class="pill">Identidade Visual</span>
+        </div>
+        <h3>Manter branding Tamara Damares</h3>
+        <ul>
+          <li>Paleta dourada + branco + preto que já é padrão nas páginas TPIJA</li>
+          <li>Tipografia serif elegante nos títulos principais</li>
+          <li>Sans-serif clean no corpo</li>
+          <li>Tom sofisticado, aspiracional, sem excessos</li>
+        </ul>
+      </div>
+
+      <div class="rule">
+        <div class="head">
+          <span class="pill">Imagens</span>
+        </div>
+        <h3>Produto em destaque, expert em segundo plano</h3>
+        <ul>
+          <li><strong>Regra principal:</strong> imagem central é o produto (mockup do checklist, capa, telas)</li>
+          <li>Foto da Tamara aparece só em 2 momentos: bio e reforço de autoridade</li>
+          <li>Prints de conversa com IA (ChatGPT/Claude) rodando o checklist</li>
+          <li>Prints da experiência de uso (aluna montando o kit dela)</li>
+        </ul>
+      </div>
+
+      <div class="rule">
+        <div class="head">
+          <span class="pill">Copy</span>
+        </div>
+        <h3>Zero travessão · palavra-chave destacada</h3>
+        <ul>
+          <li>Nenhum travessão em qualquer copy da página (regra global)</li>
+          <li>Itálico ou sublinhado em 1 a 3 palavras-chave por bloco</li>
+          <li>Frases curtas, sem enrolação</li>
+          <li>Vocabulário: pocket, jantar, mansão, alta conversão, alto ticket</li>
+        </ul>
+      </div>
+
+      <div class="rule">
+        <div class="head">
+          <span class="pill">CTA</span>
+        </div>
+        <h3>Um CTA claro e repetido</h3>
+        <ul>
+          <li>Botão principal em cor de destaque da paleta Tamara</li>
+          <li>Texto do botão: "Garantir meu Checklist"</li>
+          <li>Aparecer nas dobras 1, 4, 7, 10 e 12 (após FAQ)</li>
+          <li>Selo de urgência: "R$ 27 no lote promocional"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 1 · PROMESSA ===== -->
+<section class="dobra" id="d1">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 01</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Grande promessa · Hero da página</span>
+    </div>
+    <h3>Seu evento presencial pronto em uma tarde de conversa com a IA.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Seu <em>evento presencial</em> pronto em uma tarde. <u>Você conversa com a IA. Ela te entrega o checklist completo.</u></div>
+      <div class="copy-h2">O Checklist Coringa é o mesmo kit que a Tamara Damares usa nos mais de 100 eventos que fez no Brasil, EUA e Europa. Agora conectado ao ChatGPT ou Claude para montar tudo com você, no seu ritmo, no seu formato.</div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Imagem principal</span><span class="v"><strong>Mockup do produto</strong>. Ex: laptop mostrando a conversa com ChatGPT/Claude + PDF do checklist aberto ao lado. Sem foto da Tamara aqui.</span></div>
+      <div class="db-row"><span class="k">Fundo</span><span class="v">Bege claro ou branco cremoso da paleta Tamara. Nada escuro no topo.</span></div>
+      <div class="db-row"><span class="k">CTA</span><span class="v">Botão grande "Garantir meu Checklist por R$ 27" · logo abaixo da H2</span></div>
+      <div class="db-row"><span class="k">Selo lateral</span><span class="v">"De R$ 297 por R$ 27 · lote promocional" em pílula dourada</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Transição 1 -->
+<div class="container">
+  <div class="transicao">
+    <div class="t-label">Transição 1 · Frase polêmica</div>
+    <h4>"Evento presencial não fracassa por falta de audiência. Fracassa por falta de checklist."</h4>
+  </div>
+</div>
+
+<!-- ===== DOBRA 2 · IDENTIFICAÇÃO ===== -->
+<section class="dobra soft" id="d2">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 02</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Identificação · A dor de organizar sem estrutura</span>
+    </div>
+    <h3>A verdade sobre por que a maioria dos eventos travam antes de começar.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Você tem a expertise. Você tem a audiência. Mas na hora de <em>organizar o evento</em>, tudo trava.</div>
+      <div class="copy-body">
+        <p>Você abre um Google Docs em branco. Começa a listar o que precisa. Fornecedor de comida. Espaço. Convites. Grupo de WhatsApp. Roteiro do pitch. Fluxo de pré, durante e pós. Roteiro dos slides. E lá pelas linhas 40 e 50, você já não sabe mais o que falta.</p>
+        <p><strong>Não é falta de método. É falta de checklist.</strong></p>
+        <p>A diferença entre um evento pocket que fatura R$ 100 mil e um que trava aos 20% de conversão está exatamente no que quase ninguém enxerga: <em>os 200 pontos operacionais que precisam estar prontos antes de a primeira pessoa entrar na sala</em>.</p>
+        <p>É por isso que a Tamara construiu, ao longo de mais de 100 eventos, o <strong>Checklist Coringa</strong>. E agora acoplou ao ChatGPT e ao Claude para você montar o seu, sob medida, sem precisar decorar nada.</p>
+      </div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Elemento visual</span><span class="v">Print de um Google Docs zoado, cheio de itens sem organização. Ao lado, print do PDF do Checklist Coringa organizado por seção.</span></div>
+      <div class="db-row"><span class="k">Comparação</span><span class="v">Estilo "antes e depois". O caos vs a estrutura.</span></div>
+      <div class="db-row"><span class="k">Cor de fundo</span><span class="v">Bege bem clarinho para diferenciar da dobra 1.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Transição 2 -->
+<div class="container">
+  <div class="transicao">
+    <div class="t-label">Transição 2 · Take-away</div>
+    <h4>"200 pontos operacionais entre você e o próximo cheque de R$ 100 mil. O Coringa entrega os 200 em uma conversa."</h4>
+  </div>
+</div>
+
+<!-- ===== DOBRA 3 · ROADMAP ===== -->
+<section class="dobra" id="d3">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 03</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Roadmap · Como funciona</span>
+    </div>
+    <h3>Como o Checklist Coringa funciona na prática.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Você abre. Cola o prompt. E a IA <em>faz o resto</em>.</div>
+      <div class="copy-body">
+        <p>São <strong>4 passos</strong>. Sem curva de aprendizado, sem precisar aprender IA, sem precisar decorar checklist.</p>
+      </div>
+      <ul class="checks">
+        <li><strong>1.</strong> Você recebe o PDF do Checklist Coringa e o Prompt Coringa (validado para ChatGPT e Claude).</li>
+        <li><strong>2.</strong> Você abre o ChatGPT ou Claude e cola o Prompt. A IA assume a conversa.</li>
+        <li><strong>3.</strong> Ela te pergunta: qual formato do seu evento? Que tipo de público? Quantas pessoas? Qual produto vai ofertar? Que estrutura você já tem?</li>
+        <li><strong>4.</strong> Baseada em tudo isso, ela te devolve o seu checklist completo, personalizado, item por item. Mensagens do grupo. Fluxo de pré. Roteiro do dia. Pós-evento. Tudo pronto pra copiar, colar e executar.</li>
+      </ul>
+      <div class="copy-body">
+        <p style="margin-top:14px">Você conversou 30 minutos com a IA. Saiu com <strong>200 pontos operacionais</strong> resolvidos.</p>
+      </div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout sugerido</span><span class="v">4 cards horizontais numerados (1, 2, 3, 4) com ícone pequeno em cima e texto embaixo. Estilo timeline.</span></div>
+      <div class="db-row"><span class="k">Ícones</span><span class="v">1 = PDF · 2 = Prompt/robô · 3 = Chat · 4 = Checklist marcado</span></div>
+      <div class="db-row"><span class="k">Prova visual</span><span class="v">Print real da conversa com IA logo abaixo dos 4 cards. Mostrar 2 ou 3 mensagens onde a IA pergunta e o usuário responde. Cria realismo.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 4 · FORMATOS ===== -->
+<section class="dobra soft" id="d4">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 04</span>
+      <span class="d-tone d-emo">Emocional · Destaque</span>
+      <span class="d-fn">· Os 3 formatos suportados</span>
+    </div>
+    <h3>Um checklist. Três formatos de evento.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">O Coringa <em>adapta o kit</em> automaticamente ao formato que você quer rodar.</div>
+      <div class="copy-body">
+        <p>Cada formato de evento pocket tem sua lógica própria. Fornecedores diferentes, roteiros diferentes, dinâmicas diferentes, ofertas diferentes. O Checklist Coringa mapeia isso pra você.</p>
+      </div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">3 cards grandes lado a lado, um para cada formato. Cada card com foto real do formato correspondente + nome + descrição curta.</span></div>
+      <div class="db-row"><span class="k">Foto Pocket</span><span class="v">Sala íntima com 20 a 30 pessoas, ambiente sofisticado, iluminação quente.</span></div>
+      <div class="db-row"><span class="k">Foto Jantar</span><span class="v">Mesa longa, 8 a 16 pessoas, taças de vinho, ambiente restaurante premium.</span></div>
+      <div class="db-row"><span class="k">Foto Mansão</span><span class="v">Ambiente residencial de luxo, grupo distribuído em salas amplas, experiência premium.</span></div>
+    </div>
+
+    <div class="copy-card" style="margin-top:20px">
+      <div class="copy-label">Texto para cada card</div>
+      <div class="copy-body">
+        <p><strong>Pocket ·</strong> Sala íntima de 20 a 30 pessoas. Baixo custo, alta conversão. O formato mais replicável.</p>
+        <p><strong>Jantar ·</strong> Restaurante fechado com 8 a 16 pessoas. Ticket médio mais alto, conversão intimista.</p>
+        <p><strong>Mansão ·</strong> Experiência premium em espaço residencial. Formato de altíssimo ticket, conversão emocional máxima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 5 · DEPOIMENTOS ===== -->
+<section class="dobra" id="d5">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 05</span>
+      <span class="d-tone d-rac">Racional</span>
+      <span class="d-fn">· Depoimentos · Prova social com números</span>
+    </div>
+    <h3>O checklist já rodou. Os resultados também.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Tagline</div>
+      <div class="copy-h1">Mulheres reais. Salas pequenas. <em>Cheques grandes.</em></div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">Grid de 6 cards de depoimento. Cada um com foto pequena da aluna, nome, formato e resultado destacado.</span></div>
+      <div class="db-row"><span class="k">Fonte dos dados</span><span class="v">Prints reais de WhatsApp com pinos vermelhos 📍 que a Tamara já usou em outros criativos.</span></div>
+      <div class="db-row"><span class="k">Estilo</span><span class="v">Não é foto da Tamara. É foto de cada aluna, para reforçar prova social autêntica.</span></div>
+    </div>
+
+    <div class="copy-card" style="margin-top:20px">
+      <div class="copy-label">Cards de depoimento</div>
+      <div class="copy-body">
+        <p><strong>Ana Cláudia ·</strong> Primeiro evento. 170 pessoas. <em>R$ 256 mil</em> faturados.</p>
+        <p><strong>Ana Justino ·</strong> 15 pessoas no Café Nobre. <em>R$ 52.179</em> em uma noite. Conversão de 50%.</p>
+        <p><strong>Cris ·</strong> Turnê Jantar com 21 pessoas. Retorno líquido de <em>$23.921</em> com investimento de $2.330.</p>
+        <p><strong>Tauanne ·</strong> Dois jantares no Coco Bambu. <em>R$ 75 mil</em> projetados no LTV.</p>
+        <p><strong>Carol ·</strong> Dois jantares pocket. <em>R$ 60 mil</em> em faturamento total.</p>
+        <p><strong>Lilian ·</strong> 15 pessoas. R$ 7.200 investidos. <em>R$ 24 mil</em> faturados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 6 · PRA QUEM É ===== -->
+<section class="dobra soft" id="d6">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 06</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Disclaimer · Pra quem é e pra quem NÃO é</span>
+    </div>
+    <h3>Filtro de honestidade.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Não vou prometer que serve pra todo mundo.</div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">2 colunas lado a lado. Coluna verde (é pra você se) à esquerda, coluna vermelha (NÃO é pra você se) à direita.</span></div>
+      <div class="db-row"><span class="k">Elementos</span><span class="v">Nenhuma foto nesta dobra. Só texto limpo em blocos coloridos.</span></div>
+    </div>
+
+    <div class="copy-card" style="margin-top:20px">
+      <div class="copy-label">Coluna 1 · É PRA VOCÊ SE</div>
+      <ul class="checks">
+        <li>Vende mentoria, consultoria ou produto de ticket médio e alto</li>
+        <li>Quer testar evento presencial pocket sem se enrolar na operação</li>
+        <li>Prefere usar IA como aliada em vez de decorar checklist</li>
+        <li>Vai executar seu evento nos próximos 60 dias</li>
+        <li>Já fez a Imersão Jornada da Autoridade ou quer complementar</li>
+      </ul>
+    </div>
+
+    <div class="copy-card" style="margin-top:14px">
+      <div class="copy-label">Coluna 2 · NÃO É PRA VOCÊ SE</div>
+      <ul class="checks x">
+        <li>Está procurando fórmula mágica sem execução</li>
+        <li>Não quer aprender a vender presencialmente</li>
+        <li>Acredita que evento pequeno gera faturamento pequeno</li>
+        <li>Já tem um método próprio validado e não quer testar novos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 7 · BÔNUS ===== -->
+<section class="dobra" id="d7">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 07</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Bônus · Pitch Implacável + Slides que Convertem</span>
+    </div>
+    <h3>Você não leva só o Checklist. Leva o pitch e os slides junto.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">2 bônus que <em>completam o kit</em>.</div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">2 cards grandes lado a lado, cada um com mockup do bônus + descrição.</span></div>
+      <div class="db-row"><span class="k">Bônus 1 · Imagem</span><span class="v">Capa do ebook Pitch Implacável em mockup 3D (Kindle ou tablet).</span></div>
+      <div class="db-row"><span class="k">Bônus 2 · Imagem</span><span class="v">Mockup de laptop com slide aberto no Canva ou Keynote + notinha "gerado com IA".</span></div>
+    </div>
+
+    <div class="copy-card" style="margin-top:20px">
+      <div class="copy-label">Bônus 01 · Ebook Pitch Implacável</div>
+      <div class="copy-h2" style="color:var(--ink);font-weight:700">Ebook Pitch Implacável</div>
+      <div class="copy-body">
+        <p>O guia que monta praticamente seu pitch completo para você. Estrutura, gatilhos, momento da oferta, quebra de objeção. É a mesma metodologia que fez a Tamara fechar <strong>R$ 10 milhões</strong> em eventos presenciais.</p>
+        <p style="margin-top:8px"><em>Valor separado: R$ 297</em></p>
+      </div>
+    </div>
+
+    <div class="copy-card" style="margin-top:14px">
+      <div class="copy-label">Bônus 02 · Slides que Convertem</div>
+      <div class="copy-h2" style="color:var(--ink);font-weight:700">Slides que Convertem (com IA)</div>
+      <div class="copy-body">
+        <p>Template de slides + aula rápida de como gerar cada slide com IA, seguindo a metodologia da Tamara. A mesma que gerou <strong>R$ 50 milhões</strong> em resultados dentro do mercado digital pelas alunas.</p>
+        <p style="margin-top:8px"><em>Valor separado: R$ 497</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 8 · QUEM SOU EU ===== -->
+<section class="dobra soft" id="d8">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 08</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Quem sou eu · Bio Tamara</span>
+    </div>
+    <h3>Quem é a mulher por trás do método.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Tamara Damares</div>
+      <div class="copy-body">
+        <p>Tamara Damares é a mulher que trouxe o <strong>modelo pocket americano</strong> de eventos presenciais para o Brasil. Fundadora do Instituto Gestão Implacável, criadora do método Pitch Implacável, com mais de <strong>100 eventos</strong> estruturados no Brasil, EUA e Europa.</p>
+        <p>Alunas dela já geraram <strong>R$ 50 milhões</strong> em faturamento aplicando a mesma metodologia que está por trás deste Checklist. Ela mesma faturou <strong>R$ 10 milhões</strong> vendendo em eventos presenciais que caberiam em uma sala de jantar.</p>
+        <p>O Checklist Coringa é o destilado operacional de tudo isso.</p>
+      </div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Imagem</span><span class="v"><strong>Aqui pode entrar foto da Tamara.</strong> Uma foto profissional dela em palco ou retrato sofisticado. É o único momento da página onde a foto dela aparece com destaque.</span></div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">Foto ocupando metade esquerda, texto na direita. Ou vice-versa.</span></div>
+      <div class="db-row"><span class="k">Fundo</span><span class="v">Bege ou branco cremoso para manter tom aspiracional.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 9 · REFORÇO ===== -->
+<section class="dobra" id="d9">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 09</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Reforço · Números do método</span>
+    </div>
+    <h3>Números que ninguém promete porque poucos podem entregar.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <ul class="checks">
+        <li><strong>+100 eventos</strong> estruturados no Brasil, EUA e Europa</li>
+        <li><strong>R$ 10 milhões</strong> gerados diretamente pela Tamara nos próprios eventos</li>
+        <li><strong>R$ 50 milhões</strong> gerados pelas alunas aplicando o mesmo método</li>
+        <li>Conversão média de evento entre <strong>50% e 70%</strong></li>
+        <li>Método validado em audiências de <strong>10 a 200 pessoas</strong></li>
+        <li>Replicado em português, inglês e espanhol</li>
+      </ul>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">Grid de 6 cards com número gigante em cada + label pequeno explicando.</span></div>
+      <div class="db-row"><span class="k">Estilo</span><span class="v">Tipografia serif grande e dourada nos números. Sem foto da Tamara aqui, só números.</span></div>
+      <div class="db-row"><span class="k">Carrossel opcional</span><span class="v">Se sobrar espaço, adicionar carrossel de fotos de eventos reais (Miami, Lisboa, São Paulo, Rio) na parte inferior.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 10 · GARANTIA ===== -->
+<section class="dobra soft" id="d10">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 10</span>
+      <span class="d-tone d-rac">Racional</span>
+      <span class="d-fn">· Garantia · 7 dias incondicional</span>
+    </div>
+    <h3>Sua decisão é blindada.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">Garantia incondicional de <em>7 dias</em>.</div>
+      <div class="copy-body">
+        <p>Compre o Checklist Coringa. Se em até 7 dias você achar que não é pra você, envia um email e a devolução é integral. Sem perguntas, sem fricção, sem burocracia.</p>
+        <p><strong>Você só assume o compromisso depois de abrir e ver com seus próprios olhos.</strong></p>
+      </div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">Card centralizado com selo grande de garantia (7 dias) + texto explicativo curto.</span></div>
+      <div class="db-row"><span class="k">Selo</span><span class="v">Formato de moeda comemorativa. Dourado + preto. "7 DIAS · SATISFAÇÃO GARANTIDA".</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 11 · STACK ===== -->
+<section class="dobra" id="d11">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 11</span>
+      <span class="d-tone d-emo">Emocional</span>
+      <span class="d-fn">· Stack · Olha tudo o que você leva</span>
+    </div>
+    <h3>Tudo que você leva por R$ 27.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta</div>
+      <div class="copy-h1">O que entra <em>na sua conta</em> ao comprar.</div>
+    </div>
+
+    <div class="stack">
+      <div class="stack-row">
+        <div class="item">Checklist Coringa (PDF interativo)</div>
+        <div class="price">R$ 297</div>
+      </div>
+      <div class="stack-row">
+        <div class="item">Prompt Coringa (validado para ChatGPT e Claude)</div>
+        <div class="price">R$ 197</div>
+      </div>
+      <div class="stack-row bonus">
+        <div class="item">Ebook Pitch Implacável</div>
+        <div class="price">R$ 297</div>
+      </div>
+      <div class="stack-row bonus">
+        <div class="item">Slides que Convertem (Template + Aula com IA)</div>
+        <div class="price">R$ 497</div>
+      </div>
+      <div class="stack-row total">
+        <div class="item">VALOR TOTAL</div>
+        <div class="price">R$ 1.288</div>
+      </div>
+    </div>
+
+    <div class="stack-final">
+      <div class="from">De R$ 1.288</div>
+      <div class="now">por apenas <b>R$ 27,00</b></div>
+      <div class="install">à vista · ou 3x sem juros no cartão</div>
+    </div>
+
+    <div class="design-brief">
+      <div class="db-label">Direcionamento visual</div>
+      <div class="db-row"><span class="k">Estilo</span><span class="v">Lista limpa com valor riscado ao lado. Total destacado. Bloco final em dourado ou destaque forte.</span></div>
+      <div class="db-row"><span class="k">Elemento gráfico</span><span class="v">Mockup em cascata dos 4 produtos (Checklist + Prompt + Ebook + Template) no topo do bloco.</span></div>
+      <div class="db-row"><span class="k">CTA</span><span class="v">Botão grande "Garantir meu Checklist por R$ 27" logo abaixo do bloco final.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOBRA 12 · FAQ ===== -->
+<section class="dobra soft" id="d12">
+  <div class="container">
+    <div class="dobra-header">
+      <span class="d-num">Dobra 12</span>
+      <span class="d-tone d-rac">Racional</span>
+      <span class="d-fn">· FAQ · Perguntas frequentes</span>
+    </div>
+    <h3>As 8 dúvidas mais frequentes.</h3>
+
+    <div class="copy-card">
+      <div class="copy-label">Copy pronta · Tagline</div>
+      <div class="copy-h1">Antes de você entrar, leia isso.</div>
+    </div>
+
+    <div style="margin-top:20px">
+      <div class="faq-item">
+        <div class="q">Preciso saber usar IA para conseguir usar o Checklist?</div>
+        <div class="a">Não. O Prompt Coringa é feito para você copiar, colar no ChatGPT ou Claude e apertar enter. A IA assume a conversa. Você só responde as perguntas que ela fizer, no seu ritmo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Serve para qual formato de evento?</div>
+        <div class="a">Os 3 formatos que mais convertem: Pocket, Jantar e Mansão. A IA identifica seu formato logo no início e adapta o kit inteiro para ele.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Preciso ter feito a Imersão Jornada da Autoridade?</div>
+        <div class="a">Não. O Checklist Coringa é independente. Mas ele complementa o método da Imersão. Quem tem os dois executa mais rápido.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Já faço evento. Ainda vale a pena?</div>
+        <div class="a">Sim. Aqui você elimina a improvisação. Recebe o kit completo em 30 minutos de conversa com a IA e vira uma máquina de replicar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Como recebo o produto após a compra?</div>
+        <div class="a">Entrega imediata. Você recebe o email com acesso à área de membro simples com o PDF do Checklist, o Prompt Coringa (pronto para copiar), o Ebook Pitch Implacável e o Template + Aula de Slides.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Funciona no ChatGPT gratuito?</div>
+        <div class="a">Sim. O Prompt Coringa foi testado no ChatGPT gratuito, no ChatGPT Plus, no Claude gratuito e no Claude Pro. Todos entregam bem.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Como funciona a garantia?</div>
+        <div class="a">7 dias incondicional. Envia um email dizendo que quer o reembolso, você recebe o valor integral de volta. Sem perguntas.</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">Vou precisar comprar mais alguma coisa depois?</div>
+        <div class="a">Não. O Checklist Coringa é o kit completo para você executar o seu primeiro evento pocket. Nada de upsell obrigatório.</div>
+      </div>
+    </div>
+
+    <div class="design-brief" style="margin-top:24px">
+      <div class="db-label">Direcionamento visual · CTA final</div>
+      <div class="db-row"><span class="k">Layout</span><span class="v">Depois da última pergunta do FAQ, colocar bloco de CTA final centralizado.</span></div>
+      <div class="db-row"><span class="k">Texto</span><span class="v">"Tirou suas dúvidas? Garante seu Checklist Coringa por R$ 27 antes do lote virar."</span></div>
+      <div class="db-row"><span class="k">Botão</span><span class="v">"Garantir meu Checklist" · destacado, cor da paleta Tamara</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="container">
+    Briefing de Página · Checklist Coringa · Tamara Damares · Brito Mídias · 13/06/2026<br>
+    <a href="relatorio-criativos-imagem.html">Relatório de criativos</a> · <a href="15-copies-imagens-tpija008.html">15 copies de imagem TPIJA008</a>
+  </div>
+</footer>
+
+</body></html>
