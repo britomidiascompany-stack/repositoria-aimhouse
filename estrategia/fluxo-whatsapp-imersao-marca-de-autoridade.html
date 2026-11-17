@@ -79,6 +79,13 @@ h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
 .node.jump .head{background:#0F766E}
 
 .bubble{background:var(--wpp);border-radius:10px 10px 10px 2px;padding:10px 12px;font-size:12.6px;color:#111;white-space:pre-line;line-height:1.5}
+.bubble{position:relative;padding-right:40px}
+.copy{position:absolute;top:6px;right:6px;display:flex;align-items:center;gap:5px;height:26px;min-width:26px;padding:0 6px;border:1px solid #B9DCA3;background:rgba(255,255,255,.85);color:#0B7A5B;border-radius:7px;cursor:pointer;font:600 11px Poppins,sans-serif}
+.copy:hover{background:#fff;border-color:#0B7A5B}
+.copy svg{width:14px;height:14px;flex:none}
+.copy span{display:none}
+.copy.ok{background:#0B7A5B;border-color:#0B7A5B;color:#fff}
+.copy.ok span{display:inline}
 .btn-wpp{margin-top:8px;border:1px solid #CFE9BE;background:#fff;color:#0B7A5B;border-radius:8px;text-align:center;font-weight:600;font-size:12.5px;padding:7px}
 .tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-bottom:8px}
 .tag.util{background:#DBEAFE;color:#1D4ED8}
@@ -347,6 +354,26 @@ Equipe Tamara Damares e Izah Menezes</div>
   });
   function stop(){drag=null;board.classList.remove('dragging');}
   board.addEventListener('pointerup',stop);board.addEventListener('pointercancel',stop);
+  // botão de copiar em cada mensagem
+  var ICON_COPY='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  var ICON_OK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg>';
+  function copyText(t){
+    if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t);
+    return new Promise(function(res,rej){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')?res():rej();}catch(err){rej(err);}a.remove();});
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.bubble'),function(b){
+    var text=b.innerText.trim();
+    var btn=document.createElement('button');
+    btn.type='button';btn.className='copy';btn.title='Copiar mensagem';btn.setAttribute('aria-label','Copiar mensagem');
+    btn.innerHTML=ICON_COPY+'<span>Copiado</span>';
+    btn.addEventListener('click',function(){
+      copyText(text).then(function(){
+        btn.classList.add('ok');btn.innerHTML=ICON_OK+'<span>Copiado</span>';
+        setTimeout(function(){btn.classList.remove('ok');btn.innerHTML=ICON_COPY+'<span>Copiado</span>';},1600);
+      });
+    });
+    b.insertBefore(btn,b.firstChild);
+  });
   // zoom inicial: cabe na altura do quadro, sem ficar pequeno demais para ler
   setZoom(Math.max(0.7,Math.min(1,maxH()/H)));board.scrollLeft=0;board.scrollTop=0;
   function draw(){
