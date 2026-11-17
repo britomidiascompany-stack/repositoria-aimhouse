@@ -86,6 +86,13 @@ h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
 .copy span{display:none}
 .copy.ok{background:#0B7A5B;border-color:#0B7A5B;color:#fff}
 .copy.ok span{display:inline}
+a.btn-wpp{display:block;text-decoration:none}
+a.btn-wpp:hover{background:#F0FBEA}
+.linkline{display:block;width:100%;margin-top:6px;border:0;background:none;padding:0;text-align:left;font:500 11px Poppins,sans-serif;color:#0B7A5B;cursor:pointer;word-break:break-all}
+.linkline:hover{text-decoration:underline}
+.linkline.ok{color:#047857;font-weight:700}
+.linkline.pend{color:#92400E;cursor:default}
+.linkline.pend:hover{text-decoration:none}
 .btn-wpp{margin-top:8px;border:1px solid #CFE9BE;background:#fff;color:#0B7A5B;border-radius:8px;text-align:center;font-weight:600;font-size:12.5px;padding:7px}
 .tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-bottom:8px}
 .tag.util{background:#DBEAFE;color:#1D4ED8}
@@ -129,9 +136,9 @@ footer{border-top:1px solid var(--linha);padding:26px 0 40px;color:var(--cinza);
     <p>Sequência de mensagens enviada pelo SellFlux depois da compra: convite para o grupo da turma, lembrete para quem ainda não entrou e a mensagem da gravação para quem já está no grupo.</p>
     <div class="chips">
       <span class="chip">3 mensagens modelo</span>
-      <span class="chip">Dia 28 · 09h às 16h</span>
-      <span class="chip">Dia 29 · 09h às 12h</span>
-      <span class="chip">100% online</span>
+      <span class="chip">Sábado 28/11 · 09h às 16h</span>
+      <span class="chip">Domingo 29/11 · 09h às 12h</span>
+      <span class="chip">100% online, pelo Zoom</span>
       <span class="chip">Equipe Tamara Damares e Izah Menezes</span>
     </div>
   </div>
@@ -178,14 +185,15 @@ footer{border-top:1px solid var(--linha);padding:26px 0 40px;color:var(--cinza);
             <span class="tag util">Modelo · utilidade</span>
             <div class="bubble">Oi, {NOME}! Que alegria ter você na Imersão Marca de Autoridade 💛
 
-📅 Dia 28 · 09h às 16h
-📅 Dia 29 · 09h às 12h
-💻 100% online e ao vivo
+📅 Sábado, 28/11 · 09h às 16h
+📅 Domingo, 29/11 · 09h às 12h
+💻 100% online e ao vivo, pelo Zoom
 
-Todos os avisos, o link de acesso e os materiais saem no grupo oficial da turma. Entra agora pra não perder nada 👇
+Todos os avisos, o link do Zoom e os materiais saem no grupo oficial da turma. Entra agora pra não perder nada 👇
 
 Equipe Tamara Damares e Izah Menezes</div>
-            <div class="btn-wpp">Entrar no grupo</div>
+            <a class="btn-wpp" href="https://chat.whatsapp.com/HsilBgoDdig877vVZuFeGS?mode=gi_t" target="_blank" rel="noopener">Entrar no grupo</a>
+            <button type="button" class="linkline" data-copy="https://chat.whatsapp.com/HsilBgoDdig877vVZuFeGS?mode=gi_t">Link do botão: chat.whatsapp.com/HsilBgoDdig877vVZuFeGS · copiar</button>
           </div>
         </div>
 
@@ -210,10 +218,11 @@ Equipe Tamara Damares e Izah Menezes</div>
             <span class="tag util">Modelo · utilidade</span>
             <div class="bubble">{NOME}, vi que você ainda não entrou no grupo da Imersão Marca de Autoridade 👀
 
-É por lá que vão sair o link de acesso, os avisos e os materiais. Sem estar no grupo, você corre o risco de perder o começo no dia 28.
+É por lá que vão sair o link do Zoom, os avisos e os materiais. Sem estar no grupo, você corre o risco de perder o começo no sábado, dia 28.
 
 Leva 5 segundos 👇</div>
-            <div class="btn-wpp">Entrar no grupo</div>
+            <a class="btn-wpp" href="https://chat.whatsapp.com/HsilBgoDdig877vVZuFeGS?mode=gi_t" target="_blank" rel="noopener">Entrar no grupo</a>
+            <button type="button" class="linkline" data-copy="https://chat.whatsapp.com/HsilBgoDdig877vVZuFeGS?mode=gi_t">Link do botão: chat.whatsapp.com/HsilBgoDdig877vVZuFeGS · copiar</button>
           </div>
         </div>
 
@@ -263,6 +272,7 @@ Uma dica: a imersão é ao vivo e muita coisa passa rápido. Com a gravação, v
 
 Equipe Tamara Damares e Izah Menezes</div>
             <div class="btn-wpp">Garantir a gravação</div>
+            <div class="linkline pend">Link do botão: checkout da gravação nova (a criar na Zouti)</div>
           </div>
         </div>
 
@@ -295,7 +305,7 @@ Equipe Tamara Damares e Izah Menezes</div>
       <div class="card"><span class="k">Grupo</span><h3>Como o SellFlux sabe que a pessoa entrou</h3><p>As condições 4 e 7 dependem do SellFlux identificar a entrada no grupo. Confirmar se ele faz isso sozinho ou se precisa de um link rastreado no botão.</p></div>
       <div class="card"><span class="k">Meta</span><h3>Aprovação dos modelos</h3><p>Pela API oficial, as 3 mensagens precisam ser aprovadas como modelo. Convite e lembrete entram como utilidade; a da gravação, por ter oferta, tende a ser classificada como marketing.</p></div>
       <div class="card"><span class="k">Gravação</span><h3>Quem comprou no order bump</h3><p>A condição 9 evita oferecer a gravação para quem já comprou. Confirmar se a Zouti manda essa informação para o SellFlux.</p></div>
-      <div class="card"><span class="k">Datas</span><h3>Mês e dia da semana</h3><p>As mensagens dizem só "Dia 28" e "Dia 29". Se quiser o mês ou o dia da semana, ajustar os modelos antes de enviar para aprovação.</p></div>
+      <div class="card"><span class="k">Gravação</span><h3>Link do checkout da gravação</h3><p>O botão da Mensagem 3 vai apontar para a oferta da gravação nova, que ainda vai ser criada na Zouti. O link entra aqui assim que existir.</p></div>
     </div>
   </div>
 </section>
@@ -344,7 +354,7 @@ Equipe Tamara Damares e Izah Menezes</div>
   // arrastar com o mouse para navegar (no toque o navegador já rola sozinho)
   var drag=null;
   board.addEventListener('pointerdown',function(e){
-    if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('.bubble'))return;
+    if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('.bubble,a,button'))return;
     drag={x:e.clientX,y:e.clientY,l:board.scrollLeft,t:board.scrollTop};
     board.classList.add('dragging');board.setPointerCapture(e.pointerId);
   });
@@ -373,6 +383,16 @@ Equipe Tamara Damares e Izah Menezes</div>
       });
     });
     b.insertBefore(btn,b.firstChild);
+  });
+  // copiar o link do botão
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copy]'),function(el){
+    var original=el.textContent;
+    el.addEventListener('click',function(){
+      copyText(el.getAttribute('data-copy')).then(function(){
+        el.classList.add('ok');el.textContent='Link copiado';
+        setTimeout(function(){el.classList.remove('ok');el.textContent=original;},1600);
+      });
+    });
   });
   // zoom inicial: cabe na altura do quadro, sem ficar pequeno demais para ler
   setZoom(Math.max(0.7,Math.min(1,maxH()/H)));board.scrollLeft=0;board.scrollTop=0;
