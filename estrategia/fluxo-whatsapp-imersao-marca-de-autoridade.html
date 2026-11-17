@@ -47,7 +47,16 @@ h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
 
 /* CANVAS DO FLUXO */
 .board{border:1px solid var(--linha);border-radius:16px;overflow:auto;background:#F4F3F7;background-image:radial-gradient(#C9C4D4 1.1px,transparent 1.1px);background-size:22px 22px;box-shadow:inset 0 1px 0 #fff}
-.canvas{position:relative;width:2640px;height:960px}
+.board{height:min(78vh,960px);cursor:grab;-webkit-user-select:none;user-select:none;touch-action:pan-x pan-y}
+.board.dragging{cursor:grabbing}
+.board .bubble{-webkit-user-select:text;user-select:text;cursor:text}
+.sizer{position:relative}
+.canvas{position:absolute;left:0;top:0;width:2640px;height:960px;transform-origin:0 0}
+.toolbar{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.toolbar button{font:600 13px Poppins,sans-serif;border:1px solid var(--linha);background:#fff;color:var(--ink);border-radius:9px;height:34px;min-width:34px;padding:0 12px;cursor:pointer}
+.toolbar button:hover{border-color:var(--roxo-light);color:var(--roxo-dark)}
+.toolbar .zoom{font-size:13px;font-weight:600;color:var(--cinza);min-width:48px;text-align:center}
+.toolbar .tip{margin-left:auto;font-size:12.5px;color:var(--cinza)}
 .canvas svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .wires path{fill:none;stroke:#9A93A8;stroke-width:2.2}
 .wires path.sim{stroke:#059669}
@@ -135,7 +144,16 @@ footer{border-top:1px solid var(--linha);padding:26px 0 40px;color:var(--cinza);
     </div>
   </div>
   <div class="container">
+    <div class="toolbar">
+      <button type="button" id="zout" aria-label="Afastar">−</button>
+      <span class="zoom" id="zlabel">100%</span>
+      <button type="button" id="zin" aria-label="Aproximar">+</button>
+      <button type="button" id="zfit">Ver tudo</button>
+      <button type="button" id="z100">100%</button>
+      <span class="tip">Clique e arraste o quadro para navegar · Ctrl + rolagem para zoom</span>
+    </div>
     <div class="board" id="board">
+      <div class="sizer" id="sizer">
       <div class="canvas" id="canvas">
         <svg class="wires" id="wires"></svg>
 
@@ -255,8 +273,9 @@ Equipe Tamara Damares e Izah Menezes</div>
             <div class="meta">Pessoa no grupo e oferta da gravação enviada.</div></div>
         </div>
       </div>
+      </div>
     </div>
-    <p class="hint">No celular, arraste o quadro para o lado para ver o fluxo inteiro.</p>
+    <p class="hint">No celular, arraste com o dedo para ver o fluxo inteiro.</p>
   </div>
 </section>
 
@@ -290,7 +309,46 @@ Equipe Tamara Damares e Izah Menezes</div>
     ['n10','n12','']
   ];
   var canvas=document.getElementById('canvas'),svg=document.getElementById('wires');
-  function box(el){var c=canvas.getBoundingClientRect(),r=el.getBoundingClientRect();return{x:r.left-c.left,y:r.top-c.top,w:r.width,h:r.height};}
+  var board=document.getElementById('board'),sizer=document.getElementById('sizer'),zlabel=document.getElementById('zlabel');
+  var W=canvas.offsetWidth,H=canvas.offsetHeight,z=1;
+  // posição sem o zoom aplicado, somando offsets até o canvas
+  function box(el){var x=0,y=0,n=el;while(n&&n!==canvas){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return{x:x,y:y,w:el.offsetWidth,h:el.offsetHeight};}
+  function setZoom(nz,cx,cy){
+    nz=Math.max(0.3,Math.min(1.5,Math.round(nz*100)/100));
+    if(cx===undefined){cx=board.clientWidth/2;cy=board.clientHeight/2;}
+    var px=(board.scrollLeft+cx)/z,py=(board.scrollTop+cy)/z;
+    z=nz;canvas.style.transform='scale('+z+')';
+    sizer.style.width=W*z+'px';sizer.style.height=H*z+'px';
+    board.style.height=Math.max(300,Math.min(maxH(),H*z+18))+'px';
+    board.scrollLeft=px*z-cx;board.scrollTop=py*z-cy;
+    zlabel.textContent=Math.round(z*100)+'%';
+  }
+  function maxH(){return Math.min(window.innerHeight*0.78,960);}
+  function fit(){setZoom(Math.min(board.clientWidth/W,maxH()/H));board.scrollLeft=0;board.scrollTop=0;}
+  document.getElementById('zin').onclick=function(){setZoom(z+0.1);};
+  document.getElementById('zout').onclick=function(){setZoom(z-0.1);};
+  document.getElementById('zfit').onclick=fit;
+  document.getElementById('z100').onclick=function(){setZoom(1);};
+  board.addEventListener('wheel',function(e){
+    if(!e.ctrlKey&&!e.metaKey)return;
+    e.preventDefault();var r=board.getBoundingClientRect();
+    setZoom(z*(e.deltaY<0?1.1:0.9),e.clientX-r.left,e.clientY-r.top);
+  },{passive:false});
+  // arrastar com o mouse para navegar (no toque o navegador já rola sozinho)
+  var drag=null;
+  board.addEventListener('pointerdown',function(e){
+    if(e.pointerType!=='mouse'||e.button!==0||e.target.closest('.bubble'))return;
+    drag={x:e.clientX,y:e.clientY,l:board.scrollLeft,t:board.scrollTop};
+    board.classList.add('dragging');board.setPointerCapture(e.pointerId);
+  });
+  board.addEventListener('pointermove',function(e){
+    if(!drag)return;
+    board.scrollLeft=drag.l-(e.clientX-drag.x);board.scrollTop=drag.t-(e.clientY-drag.y);
+  });
+  function stop(){drag=null;board.classList.remove('dragging');}
+  board.addEventListener('pointerup',stop);board.addEventListener('pointercancel',stop);
+  // zoom inicial: cabe na altura do quadro, sem ficar pequeno demais para ler
+  setZoom(Math.max(0.7,Math.min(1,maxH()/H)));board.scrollLeft=0;board.scrollTop=0;
   function draw(){
     var NS='http://www.w3.org/2000/svg',out='';
     var defs='<defs>'+['def','sim','nao'].map(function(k){var col=k==='sim'?'#059669':k==='nao'?'#DC2626':'#9A93A8';return '<marker id="a-'+k+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+col+'"/></marker>';}).join('')+'</defs>';
