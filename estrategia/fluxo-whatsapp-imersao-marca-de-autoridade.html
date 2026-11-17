@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fluxo WhatsApp · Imersão Marca de Autoridade · AIM Brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --roxo:#7C3AED;--roxo-dark:#5B21B6;--roxo-deep:#3B0F73;--roxo-light:#A78BFA;--roxo-xlight:#EDE9FE;
+  --ink:#141018;--cinza:#5B5566;--linha:#E7E3EE;--bg:#FFFFFF;--bg-soft:#FAF9FC;
+  --gatilho:#059669;--msg:#2563EB;--espera:#D97706;--cond:#7C3AED;--fim:#6B7280;--wpp:#DCF8C6;
+}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-weight:300;font-size:15px}
+.container{max-width:1180px;margin:0 auto;padding:0 28px}
+@media(max-width:560px){.container{padding:0 16px}}
+
+/* HERO */
+.hero{background:radial-gradient(1100px 500px at 78% -10%,rgba(124,58,237,.55),transparent 60%),linear-gradient(150deg,#0A0A0A 0%,#17111F 45%,#3B0F73 100%);color:#fff;padding:48px 0 54px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse 800px 450px at 60% 40%,#000 40%,transparent 80%);mask-image:radial-gradient(ellipse 800px 450px at 60% 40%,#000 40%,transparent 80%);pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.brand svg{width:40px;height:40px}
+.brand .word{display:flex;align-items:center;gap:12px}
+.brand .word b{font-weight:800;font-size:18px}
+.brand .word .bar{width:2px;height:24px;background:rgba(255,255,255,.55)}
+.brand .word span{font-size:18px;letter-spacing:.22em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--roxo-light);margin-bottom:14px}
+.eyebrow::before{content:"";width:34px;height:2px;background:var(--roxo-light);border-radius:2px}
+.hero h1{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin-bottom:14px}
+.hero h1 span{color:var(--roxo-light)}
+.hero p{max-width:760px;color:rgba(255,255,255,.78);font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:500}
+
+/* SEÇÕES */
+section{padding:44px 0}
+h2{font-size:24px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--cinza);margin-bottom:22px}
+
+/* LEGENDA */
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:13px;color:var(--cinza)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* CANVAS DO FLUXO */
+.board{border:1px solid var(--linha);border-radius:16px;overflow:auto;background:#F4F3F7;background-image:radial-gradient(#C9C4D4 1.1px,transparent 1.1px);background-size:22px 22px;box-shadow:inset 0 1px 0 #fff}
+.canvas{position:relative;width:2640px;height:960px}
+.canvas svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.wires path{fill:none;stroke:#9A93A8;stroke-width:2.2}
+.wires path.sim{stroke:#059669}
+.wires path.nao{stroke:#DC2626}
+.wires .lbl{font:600 12px Poppins,sans-serif}
+
+.node{position:absolute;width:250px;background:#fff;border-radius:14px;box-shadow:0 6px 20px rgba(20,16,24,.08),0 1px 2px rgba(20,16,24,.06);border:1px solid #E5E1EC}
+.node.wide{width:300px}
+.node .head{display:flex;align-items:center;gap:9px;padding:10px 14px;border-radius:14px 14px 0 0;color:#fff;font-weight:600;font-size:13px}
+.node .head .n{margin-left:auto;background:rgba(255,255,255,.22);border-radius:999px;padding:1px 9px;font-size:11px}
+.node .head svg{width:16px;height:16px;flex:none}
+.node .body{padding:12px 14px 14px;font-size:13px;color:#3A3445}
+.node .body b{font-weight:600;color:var(--ink)}
+.node .meta{font-size:11.5px;color:var(--cinza);margin-top:8px}
+.node.gatilho .head{background:var(--gatilho)}
+.node.msg .head{background:var(--msg)}
+.node.espera .head{background:var(--espera)}
+.node.cond .head{background:var(--cond)}
+.node.fim .head{background:var(--fim)}
+.node.jump .head{background:#0F766E}
+
+.bubble{background:var(--wpp);border-radius:10px 10px 10px 2px;padding:10px 12px;font-size:12.6px;color:#111;white-space:pre-line;line-height:1.5}
+.btn-wpp{margin-top:8px;border:1px solid #CFE9BE;background:#fff;color:#0B7A5B;border-radius:8px;text-align:center;font-weight:600;font-size:12.5px;padding:7px}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-bottom:8px}
+.tag.util{background:#DBEAFE;color:#1D4ED8}
+.tag.mkt{background:#FCE7F3;color:#BE185D}
+.tag.sug{background:#FEF3C7;color:#92400E}
+
+.ports{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.port{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--linha);border-radius:8px;padding:6px 10px;font-weight:600;font-size:12.5px}
+.port.sim{color:#047857;background:#ECFDF5;border-color:#A7F3D0}
+.port.nao{color:#B91C1C;background:#FEF2F2;border-color:#FECACA}
+.port::after{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+
+/* PENDÊNCIAS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{border:1px solid var(--linha);border-radius:14px;padding:18px 18px 16px;background:var(--bg-soft)}
+.card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.card p{font-size:14px;color:var(--cinza)}
+.card .k{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--roxo);margin-bottom:8px}
+
+footer{border-top:1px solid var(--linha);padding:26px 0 40px;color:var(--cinza);font-size:13px}
+.hint{font-size:12.5px;color:var(--cinza);margin-top:10px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="brand">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" aria-label="BM Mídias">
+        <polygon points="50,4 90,27 90,73 50,96 10,73 10,27"></polygon><polygon points="50,33 65,59 35,59"></polygon>
+        <line x1="50" y1="4" x2="50" y2="33"></line><line x1="90" y1="73" x2="65" y2="59"></line>
+        <line x1="10" y1="73" x2="35" y2="59"></line><line x1="90" y1="27" x2="50" y2="33"></line>
+        <line x1="90" y1="27" x2="65" y2="59"></line><line x1="50" y1="96" x2="65" y2="59"></line>
+        <line x1="50" y1="96" x2="35" y2="59"></line><line x1="10" y1="27" x2="35" y2="59"></line>
+        <line x1="10" y1="27" x2="50" y2="33"></line>
+      </svg>
+      <span class="word"><b>BM</b><i class="bar"></i><span>MÍDIAS</span></span>
+    </div>
+    <div class="eyebrow">Fluxo de automação · WhatsApp API oficial · SellFlux</div>
+    <h1>Recepção da <span>Imersão Marca de Autoridade</span></h1>
+    <p>Sequência de mensagens enviada pelo SellFlux depois da compra: convite para o grupo da turma, lembrete para quem ainda não entrou e a mensagem da gravação para quem já está no grupo.</p>
+    <div class="chips">
+      <span class="chip">3 mensagens modelo</span>
+      <span class="chip">Dia 28 · 09h às 16h</span>
+      <span class="chip">Dia 29 · 09h às 12h</span>
+      <span class="chip">100% online</span>
+      <span class="chip">Equipe Tamara Damares e Izah Menezes</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>O fluxo</h2>
+    <p class="sub">Cada quadro é um passo do SellFlux, lido da esquerda para a direita. As linhas verdes saem do "Sim" e as vermelhas do "Não".</p>
+    <div class="legend">
+      <span><i style="background:var(--gatilho)"></i>Gatilho</span>
+      <span><i style="background:var(--msg)"></i>Mensagem modelo</span>
+      <span><i style="background:var(--espera)"></i>Espera</span>
+      <span><i style="background:var(--cond)"></i>Condição</span>
+      <span><i style="background:#0F766E"></i>Ir para</span>
+      <span><i style="background:var(--fim)"></i>Fim</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="board" id="board">
+      <div class="canvas" id="canvas">
+        <svg class="wires" id="wires"></svg>
+
+        <!-- 1 GATILHO -->
+        <div class="node gatilho" id="n1" style="left:40px;top:380px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Gatilho<span class="n">1</span></div>
+          <div class="body"><b>Compra aprovada</b><br>Imersão Marca de Autoridade, na Zouti.
+            <div class="meta">O SellFlux recebe o contato e inicia o fluxo.</div></div>
+        </div>
+
+        <!-- 2 MENSAGEM 1 -->
+        <div class="node msg wide" id="n2" style="left:340px;top:250px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Mensagem 1 · Convite<span class="n">2</span></div>
+          <div class="body">
+            <span class="tag util">Modelo · utilidade</span>
+            <div class="bubble">Oi, {NOME}! Que alegria ter você na Imersão Marca de Autoridade 💛
+
+📅 Dia 28 · 09h às 16h
+📅 Dia 29 · 09h às 12h
+💻 100% online e ao vivo
+
+Todos os avisos, o link de acesso e os materiais saem no grupo oficial da turma. Entra agora pra não perder nada 👇
+
+Equipe Tamara Damares e Izah Menezes</div>
+            <div class="btn-wpp">Entrar no grupo</div>
+          </div>
+        </div>
+
+        <!-- 3 ESPERA -->
+        <div class="node espera" id="n3" style="left:700px;top:395px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Espera<span class="n">3</span></div>
+          <div class="body"><span class="tag sug">A definir</span><br><b>Aguardar 2 horas</b>
+            <div class="meta">Sugestão. Tempo para a pessoa abrir a mensagem e entrar no grupo.</div></div>
+        </div>
+
+        <!-- 4 CONDIÇÃO -->
+        <div class="node cond" id="n4" style="left:1000px;top:385px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12M18 9v12M6 15a6 6 0 0 0 6 6h6M18 9a6 6 0 0 0-6-6H6"/></svg>Condição<span class="n">4</span></div>
+          <div class="body"><b>Entrou no grupo da turma?</b>
+            <div class="ports"><div class="port sim" id="p4s">Sim</div><div class="port nao" id="p4n">Não</div></div></div>
+        </div>
+
+        <!-- 5 MENSAGEM 2 -->
+        <div class="node msg wide" id="n5" style="left:1310px;top:560px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Mensagem 2 · Lembrete<span class="n">5</span></div>
+          <div class="body">
+            <span class="tag util">Modelo · utilidade</span>
+            <div class="bubble">{NOME}, vi que você ainda não entrou no grupo da Imersão Marca de Autoridade 👀
+
+É por lá que vão sair o link de acesso, os avisos e os materiais. Sem estar no grupo, você corre o risco de perder o começo no dia 28.
+
+Leva 5 segundos 👇</div>
+            <div class="btn-wpp">Entrar no grupo</div>
+          </div>
+        </div>
+
+        <!-- 6 ESPERA -->
+        <div class="node espera" id="n6" style="left:1680px;top:650px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Espera<span class="n">6</span></div>
+          <div class="body"><span class="tag sug">A definir</span><br><b>Aguardar 24 horas</b>
+            <div class="meta">Sugestão. Se a compra for perto do evento, encurtar.</div></div>
+        </div>
+
+        <!-- 7 CONDIÇÃO -->
+        <div class="node cond" id="n7" style="left:1980px;top:640px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12M18 9v12M6 15a6 6 0 0 0 6 6h6M18 9a6 6 0 0 0-6-6H6"/></svg>Condição<span class="n">7</span></div>
+          <div class="body"><b>Entrou no grupo da turma?</b>
+            <div class="ports"><div class="port sim" id="p7s">Sim</div><div class="port nao" id="p7n">Não</div></div></div>
+        </div>
+
+        <!-- 8 IR PARA -->
+        <div class="node jump" id="n8" style="left:2310px;top:520px;width:230px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Ir para<span class="n">8</span></div>
+          <div class="body"><b>Passo 9 · Gravação</b>
+            <div class="meta">Segue o mesmo caminho de quem entrou de primeira.</div></div>
+        </div>
+
+        <!-- 13 FIM sem grupo -->
+        <div class="node fim" id="n13" style="left:2310px;top:760px;width:270px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>Fim<span class="n">13</span></div>
+          <div class="body"><b>Não entrou depois de 2 mensagens</b>
+            <div class="meta"><span class="tag sug" style="margin:4px 0 0">Sugestão</span><br>Marcar uma etiqueta no SellFlux para a equipe chamar no individual.</div></div>
+        </div>
+
+        <!-- 9 CONDIÇÃO BUMP -->
+        <div class="node cond" id="n9" style="left:1310px;top:150px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12M18 9v12M6 15a6 6 0 0 0 6 6h6M18 9a6 6 0 0 0-6-6H6"/></svg>Condição<span class="n">9</span></div>
+          <div class="body"><b>Já comprou a gravação no order bump?</b>
+            <div class="ports"><div class="port sim" id="p9s">Sim</div><div class="port nao" id="p9n">Não</div></div></div>
+        </div>
+
+        <!-- 10 MENSAGEM 3 -->
+        <div class="node msg wide" id="n10" style="left:1620px;top:40px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Mensagem 3 · Gravação<span class="n">10</span></div>
+          <div class="body">
+            <span class="tag mkt">Modelo · marketing</span>
+            <div class="bubble">Que bom ter você no grupo, {NOME}! 🙌
+
+Uma dica: a imersão é ao vivo e muita coisa passa rápido. Com a gravação, você revê tudo com calma depois, quantas vezes quiser.
+
+Equipe Tamara Damares e Izah Menezes</div>
+            <div class="btn-wpp">Garantir a gravação</div>
+          </div>
+        </div>
+
+        <!-- 11 FIM já comprou -->
+        <div class="node fim" id="n11" style="left:1620px;top:390px;width:230px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>Fim<span class="n">11</span></div>
+          <div class="body"><b>Já tem a gravação</b>
+            <div class="meta">Não envia a oferta.</div></div>
+        </div>
+
+        <!-- 12 FIM -->
+        <div class="node fim" id="n12" style="left:2010px;top:150px;width:230px">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/></svg>Fim<span class="n">12</span></div>
+          <div class="body"><b>Fluxo concluído</b>
+            <div class="meta">Pessoa no grupo e oferta da gravação enviada.</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="hint">No celular, arraste o quadro para o lado para ver o fluxo inteiro.</p>
+  </div>
+</section>
+
+<section style="background:var(--bg-soft);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)">
+  <div class="container">
+    <h2>Pontos a confirmar antes de montar no SellFlux</h2>
+    <p class="sub">O desenho do fluxo está pronto. Estes itens mudam a configuração e precisam de resposta.</p>
+    <div class="grid">
+      <div class="card"><span class="k">Esperas</span><h3>Tempos entre as mensagens</h3><p>2 horas antes do lembrete e 24 horas antes de encerrar são sugestões. Para compras feitas perto do dia 28, os tempos precisam ser menores.</p></div>
+      <div class="card"><span class="k">Grupo</span><h3>Como o SellFlux sabe que a pessoa entrou</h3><p>As condições 4 e 7 dependem do SellFlux identificar a entrada no grupo. Confirmar se ele faz isso sozinho ou se precisa de um link rastreado no botão.</p></div>
+      <div class="card"><span class="k">Meta</span><h3>Aprovação dos modelos</h3><p>Pela API oficial, as 3 mensagens precisam ser aprovadas como modelo. Convite e lembrete entram como utilidade; a da gravação, por ter oferta, tende a ser classificada como marketing.</p></div>
+      <div class="card"><span class="k">Gravação</span><h3>Quem comprou no order bump</h3><p>A condição 9 evita oferecer a gravação para quem já comprou. Confirmar se a Zouti manda essa informação para o SellFlux.</p></div>
+      <div class="card"><span class="k">Datas</span><h3>Mês e dia da semana</h3><p>As mensagens dizem só "Dia 28" e "Dia 29". Se quiser o mês ou o dia da semana, ajustar os modelos antes de enviar para aprovação.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">Brito Mídias · Fluxo de recepção da Imersão Marca de Autoridade (AIM Brand · Tamara Damares e Izah Menezes)</div>
+</footer>
+
+<script>
+(function(){
+  // [origem (porta ou nó), destino, tipo]
+  var edges=[
+    ['n1','n2',''],['n2','n3',''],['n3','n4',''],
+    ['p4s','n9','sim'],['p4n','n5','nao'],
+    ['n5','n6',''],['n6','n7',''],
+    ['p7s','n8','sim'],['p7n','n13','nao'],
+    ['p9n','n10','nao'],['p9s','n11','sim'],
+    ['n10','n12','']
+  ];
+  var canvas=document.getElementById('canvas'),svg=document.getElementById('wires');
+  function box(el){var c=canvas.getBoundingClientRect(),r=el.getBoundingClientRect();return{x:r.left-c.left,y:r.top-c.top,w:r.width,h:r.height};}
+  function draw(){
+    var NS='http://www.w3.org/2000/svg',out='';
+    var defs='<defs>'+['def','sim','nao'].map(function(k){var col=k==='sim'?'#059669':k==='nao'?'#DC2626':'#9A93A8';return '<marker id="a-'+k+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="'+col+'"/></marker>';}).join('')+'</defs>';
+    edges.forEach(function(e){
+      var a=box(document.getElementById(e[0])),b=box(document.getElementById(e[1]));
+      var x1=a.x+a.w,y1=a.y+a.h/2,x2=b.x-2,y2=b.y+Math.min(b.h/2,60);
+      var dx=Math.max(50,(x2-x1)/2);
+      var cls=e[2]||'',mk=e[2]||'def';
+      out+='<path class="'+cls+'" d="M'+x1+' '+y1+' C'+(x1+dx)+' '+y1+' '+(x2-dx)+' '+y2+' '+x2+' '+y2+'" marker-end="url(#a-'+mk+')"/>';
+    });
+    svg.innerHTML=defs+out;
+  }
+  window.addEventListener('load',draw);window.addEventListener('resize',draw);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+  draw();
+})();
+</script>
+</body>
+</html>
